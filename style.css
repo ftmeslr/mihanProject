@@ -1,0 +1,756 @@
+/* Icomoon  */
+@font-face {
+  font-family: "icomoon";
+  src: url("font/icomoon/icomoon.eot?9dyj9b");
+  src: url("font/icomoon/icomoon.eot?9dyj9b#iefix") format("embedded-opentype"),
+    url("font/icomoon/icomoon.ttf?9dyj9b") format("truetype"),
+    url("font/icomoon/icomoon.woff?9dyj9b") format("woff"),
+    url("font/icomoon/icomoon.svg?9dyj9b#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  content: "\e900";
+}
+
+.icon-truck:before {
+  content: "\e901";
+}
+
+.icon-telegram:before {
+  content: "\e902";
+  color: #f5f6f7;
+}
+
+.icon-steel:before {
+  content: "\e903";
+}
+
+.icon-shield:before {
+  content: "\e904";
+}
+
+.icon-search2:before {
+  content: "\e905";
+  color: #fff;
+}
+
+.icon-search:before {
+  content: "\e906";
+}
+
+.icon-return:before {
+  content: "\e907";
+  color: #bababa;
+}
+
+.icon-priceUp:before {
+  content: "\e908";
+}
+
+.icon-priceDown:before {
+  content: "\e909";
+  color: #e96666;
+}
+
+.icon-phone:before {
+  content: "\e90a";
+  color: #fff;
+}
+
+.icon-order4:before {
+  content: "\e90b";
+  color: #fff;
+}
+
+.icon-license:before {
+  content: "\e90c";
+  color: #43aa2b;
+}
+
+.icon-instagram:before {
+  content: "\e90d";
+  color: #f6f6f6;
+}
+
+.icon-heart2:before {
+  content: "\e90e";
+}
+
+.icon-heart:before {
+  content: "\e90f";
+}
+
+.icon-headphones:before {
+  content: "\e910";
+  color: #fff;
+}
+
+.icon-filter:before {
+  content: "\e911";
+  color: #777;
+}
+
+.icon-comment:before {
+  content: "\e912";
+}
+
+.icon-close:before {
+  content: "\e913";
+  color: #777;
+}
+
+.icon-clock:before {
+  content: "\e914";
+}
+
+.icon-chevron-left:before {
+  content: "\e915";
+}
+
+.icon-chevron-down:before {
+  content: "\e916";
+}
+
+.icon-basket2:before {
+  content: "\e917";
+}
+
+.icon-basket:before {
+  content: "\e918";
+}
+
+.icon-arrow-right:before {
+  content: "\e919";
+  color: #959595;
+}
+
+.icon-arrow-left:before {
+  content: "\e91a";
+  color: #959595;
+}
+
+/* Icomoon */
+
+/* Global  */
+
+@font-face {
+  font-family: "iransans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("font/iransans/iransans.woff2") format("woff2"),
+    url("font/iransans/iransans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "irbold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("font/iransans/iransans-bold.woff2") format("woff2"),
+    url("font/iransans/iransans-bold.ttf") format("truetype");
+}
+
+.f9 {
+  font-size: 9px;
+}
+
+.f11 {
+  font-size: 11px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.f13 {
+  font-size: 13px;
+}
+
+.f14 {
+  font-size: 14px;
+}
+
+.f15 {
+  font-size: 15px;
+}
+
+.f16 {
+  font-size: 16px;
+}
+
+.f18 {
+  font-size: 18px;
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.f24 {
+  font-size: 24px;
+}
+
+.f28 {
+  font-size: 28px;
+}
+
+.f32 {
+  font-size: 32px;
+}
+
+.f40 {
+  font-size: 40px;
+}
+
+.f48 {
+  font-size: 48px;
+}
+
+.l15-26 {
+  line-height: 15.26px;
+}
+
+.l18-65 {
+  line-height: 18.65px;
+}
+
+.l20-35 {
+  line-height: 20.35px;
+}
+
+.l22 {
+  line-height: 22px;
+}
+
+.l23-74 {
+  line-height: 23.74px;
+}
+
+.l25-43 {
+  line-height: 25.43px;
+}
+
+.l27-13 {
+  line-height: 27.13px;
+}
+
+.l30-52 {
+  line-height: 30.52px;
+}
+
+.l33-91 {
+  line-height: 33.91px;
+}
+
+.l40-7 {
+  line-height: 40.7px;
+}
+
+.l47-48 {
+  line-height: 47.48px;
+}
+
+.l54-26 {
+  line-height: 54.36px;
+}
+
+.l67-83 {
+  line-height: 67.83px;
+}
+
+.l81-39 {
+  line-height: 81.39px;
+}
+
+.rounded10 {
+  border-radius: 10px;
+}
+
+.rounded100 {
+  border-radius: 100%;
+}
+
+.rounded3rem {
+  border-radius: 3rem;
+}
+
+.my-10 {
+}
+
+.white-shadow {
+  box-shadow: 0px 0px 48px 8px rgba(0, 0, 0, 0.04);
+}
+
+.white-shadow2 {
+  box-shadow: 0px 14px 48px 8px rgba(0, 0, 0, 0.06);
+}
+
+.red-shadow {
+  box-shadow: 0px 10px 49px -20px #f41c1c;
+}
+
+.btn-red-shadow {
+  box-shadow: 0px 7px 48px -10px rgba(244, 28, 28, 0.34);
+}
+
+.green-shadow {
+  box-shadow: 0px 10px 49px -20px #64ba67;
+}
+
+.text-normal {
+  color: #000;
+}
+
+.text-red {
+  color: #f41c1c;
+}
+
+.bg-red {
+  background-color: #f41c1c;
+}
+
+.border-red {
+  border-color: #f41c1c;
+}
+
+.text-subtitle {
+  color: #777;
+}
+
+.text-gray {
+  color: #bababa;
+}
+
+.text-lightgray {
+  color: #f6f6f6;
+}
+
+.bg-gray {
+  background-color: #f5f6f7;
+}
+.bg-stone {
+}
+.text-link {
+  color: #1489f5;
+}
+
+.border-gray {
+  border-color: #eaeaea;
+}
+
+.bg-dark {
+  background-color: #161625;
+}
+
+.bg-main {
+  background-color: #fdfdfd;
+}
+
+.text-green {
+  color: #64ba67;
+}
+
+.transition1 {
+  transition: 0.1s all ease-in;
+}
+
+.transition2 {
+  transition: 0.2s all ease-in;
+}
+
+.fw-bold {
+  font-family: "irbold";
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+body * {
+  font-family: "iransans";
+  outline: none;
+}
+
+body a {
+  text-decoration: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-auto {
+  cursor: auto;
+}
+
+strong {
+  font-family: "irbold";
+}
+
+/* Global  */
+
+/* Swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Swiper */
+
+/* header  */
+header nav#mainNav a:hover {
+  color: #f41c1c !important;
+}
+
+header #mainSubmenu span::before {
+  content: "\e903";
+  font-size: 24px;
+  font-family: "icomoon";
+  padding: 0px 20px 0px 10px;
+  font-weight: 400;
+}
+
+header #mainSubmenu span::after {
+  content: "\e916";
+  font-size: 8px;
+  font-family: "icomoon";
+  padding: 0px 10px 0px 10px;
+  font-weight: 400;
+}
+
+header #submenu {
+  width: 650px;
+  right: 20px;
+  top: 180%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease-in-out;
+}
+
+header #mainSubmenu:hover #submenu {
+  top: 120%;
+  visibility: visible;
+  opacity: 1;
+}
+
+header #submenuTabs {
+  width: 250px;
+  border-left: 1px solid #dedede;
+}
+
+header #submenu ul.child {
+  list-style: none;
+  width: 400px;
+  padding: 0px;
+  right: 100%;
+  display: inline-grid;
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
+  display: none;
+  padding-right: 1rem;
+}
+
+header #submenu li {
+  transition: 0.2s all ease-in;
+}
+
+header #submenu li:not(.subItem)::after {
+  content: "\e915";
+  font-size: 8px;
+  color: #777;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+  font-family: "icomoon";
+  opacity: 0;
+  transition: 0.1s all ease-in;
+}
+
+header #submenu li:not(.subItem):hover {
+  background-color: #eaeaea;
+}
+
+header #submenu li:not(.subItem):hover ul.child {
+  display: inline-grid;
+}
+
+header #submenu li:not(.subItem):hover::after {
+  opacity: 1;
+  left: 10px;
+}
+
+header #submenu ul.child li a {
+  color: #000;
+  font-size: 13px;
+  padding: 5px 2rem;
+  transition: 0.2s all ease-in;
+  display: block;
+}
+
+header #submenu ul.child li:hover a {
+  color: #f41c1c;
+}
+
+header #submenu #catDesc {
+  border-top: 1px solid #dedede;
+}
+
+header .mainIcons form {
+  width: 250px;
+}
+
+header .mainIcons label::after {
+  position: absolute;
+  content: "\e915";
+  color: #fff;
+  background-color: #bababa;
+  border-radius: 100%;
+  top: 50%;
+  left: 15px;
+  transform: translate(0, -50%);
+  font-family: "icomoon";
+  font-size: 8px;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .mainIcons #searchIcon form {
+  display: none;
+}
+
+header #headAssistants {
+  top: 120%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+header #assistantItems li:hover {
+  background-color: #f5f6f7;
+}
+
+header #headContact:hover #headAssistants {
+  top: 90%;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* header  */
+
+/* index -> pricelist */
+
+#priceList button.nav-link {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+#priceList button.nav-link:hover {
+  color: unset;
+}
+
+#priceList button.nav-link.active {
+  color: #f41c1c;
+  font-family: "irbold";
+  box-shadow: 0px 0px 0px 5px #fff, 0px 0px 48px 8px rgba(0, 0, 0, 0.04);
+}
+
+#priceList button.nav-link::after {
+  content: "\e915";
+  font-family: "icomoon";
+  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(0, -50%);
+  color: #777;
+}
+
+#priceList .swiper-slide .icons i {
+  width: 50px;
+  height: 50px;
+}
+
+#priceList .swiper-slide i.icon-basket2:hover {
+  background-color: #f41c1c;
+  box-shadow: 0px 7px 48px -10px rgba(244, 28, 28, 0.34);
+  color: #fff;
+}
+
+#priceList .swiper-slide i.icon-priceUp {
+  background-color: #e6ffdb;
+}
+
+#priceList .swiper-slide i.icon-priceDown {
+  background-color: #fadfdf;
+}
+
+#priceList .swiper-slide .title:hover {
+  color: #f41c1c !important;
+}
+
+#priceList #priceListSwiper .icon-arrow-right::after,
+#priceList #priceListSwiper .icon-arrow-left::after {
+  display: none;
+}
+
+#priceList #priceListSwiper .icon-arrow-right,
+#priceList #priceListSwiper .icon-arrow-left {
+  width: 50px;
+  height: 50px;
+}
+
+#priceList #priceListFullList {
+  background-color: #525259;
+}
+
+#priceList #priceListFullList:hover {
+  background-color: #3b3b40;
+}
+
+#priceList #priceListFullList i::before {
+  color: #fff;
+}
+
+/* index -> pricelist  */
+
+/* index -> orderSteps  */
+.mh-200 {
+  min-height: 250px;
+  padding: 0px;
+}
+
+#orderSteps #orderStepsLabel {
+  border-radius: 0px 20px 20px 20px;
+}
+
+#orderSteps .textContent {
+  text-align-last: center;
+}
+
+#orderSteps .step::before {
+  content: "";
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #fff;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#orderSteps .step.stepBot::before {
+  bottom: 99%;
+}
+
+#orderSteps .step.stepTop::before {
+  top: 99%;
+  border-bottom: unset;
+  border-top: 15px solid #fff;
+}
+
+#orderSteps .step::after {
+  content: "\e905";
+  font-family: "icomoon";
+  color: #fff;
+  background-color: #f41c1c;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 1rem 0px 0px;
+}
+
+#orderSteps .step.second::after {
+  content: "\e917";
+  font-size: 21px;
+}
+
+#orderSteps .step.third::after {
+  content: "\e910";
+  font-size: 21px;
+}
+
+#orderSteps .step.fourth::after {
+  content: "\e90b";
+}
+
+#orderSteps .step.final::after {
+  content: "\e901";
+  background-color: #fff;
+  color: #f41c1c;
+  font-size: 21px;
+}
+
+#orderSteps .step.final::before {
+  display: none;
+}
+
+#orderSteps #orderStepsLine {
+  animation: lineMoving 20s linear infinite;
+}
+
+@keyframes lineMoving {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* index -> orderSteps */
+
+/* orderSteps -> whyMihan */
+
+#whyMihan i.icon-shield {
+  background-color: #c0d5f4;
+}
+#whyMihan i.icon-heart2 {
+  background-color: #f2d2d4;
+}
+#whyMihan i.icon-license {
+  background-color: #d8f2d2;
+}
+
+#whyMihan i {
+  width: 46px;
+  height: 46px;
+}
+
+#more {
+  display: none;
+}
