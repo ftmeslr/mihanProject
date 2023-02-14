@@ -29,19 +29,19 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #777; 
+  background: #777;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #777; 
+  background: #777;
 }
 
 .icon-user:before {
@@ -296,8 +296,8 @@
 .l81-39 {
   line-height: 81.39px;
 }
-.h-46{
-  height: 46px
+.h-46 {
+  height: 46px;
 }
 
 .rounded10 {
@@ -386,8 +386,8 @@
 .text-green {
   color: #64ba67;
 }
-.bg-green-light{
-  background-color: #64ba67
+.bg-green-light {
+  background-color: #64ba67;
 }
 
 .transition1 {
@@ -800,16 +800,55 @@ header #headContact:hover #headAssistants {
   width: 100%;
   height: 1px;
   background-color: #d9d9d9;
-  margin: 30px 0 ;
+  margin: 30px 0;
 }
 
-#blog .image_box{
+#blog .image_box {
   width: 85px;
   height: 85px;
 }
-
 
 #services .image_box {
   width: 110px;
 }
 
+#footer .image_box--namad {
+  width: 80px;
+  height: 80px;
+}
+
+#footer .list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#footer input {
+  width: 350px;
+  background-color: #282829;
+  border-radius: 10px;
+  border: 1px solid #777777;
+  color: #F6F6F6;
+  margin-left: 12px;
+  height: 46px;
+  font-size: 13px;
+
+
+  
+}
+
+#footer input::placeholder {
+  color: #F6F6F6;
+  font-size: 13px;
+  
+}
+#footer .image_box--contact{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+
+}
+
+#footer .bg-dark--footer{
+  background-color: #161625
+}
