@@ -786,6 +786,30 @@ header #headContact:hover #headAssistants {
   display: none;
 }
 
+#conversion input {
+  width: 100%;
+  height: 46px;
+  left: 44px;
+  top: 2188px;
+  border: none;
+  background: #f5f6f7;
+  border-radius: 10px;
+  padding: 0 90px 0 0;
+  font-size: 13px;
+}
+#conversion .tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #fff;
+  top: 3px;
+  right: 10px;
+  font-size: 13px;
+  padding: 9px 20px;
+  border-radius: 10px;
+
+}
 #blog .button {
   width: 155px;
   height: 45px;
@@ -828,27 +852,22 @@ header #headContact:hover #headAssistants {
   background-color: #282829;
   border-radius: 10px;
   border: 1px solid #777777;
-  color: #F6F6F6;
+  color: #f6f6f6;
   margin-left: 12px;
   height: 46px;
   font-size: 13px;
-
-
-  
 }
 
 #footer input::placeholder {
-  color: #F6F6F6;
+  color: #f6f6f6;
   font-size: 13px;
-  
 }
-#footer .image_box--contact{
+#footer .image_box--contact {
   width: 50px;
   height: 50px;
   margin-bottom: 15px;
-
 }
 
-#footer .bg-dark--footer{
-  background-color: #161625
+#footer .bg-dark--footer {
+  background-color: #161625;
 }
