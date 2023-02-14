@@ -380,6 +380,9 @@
 .text-justify {
   text-align: justify;
 }
+.bg-stone {
+  background-color: #777777;
+}
 
 body * {
   font-family: "iransans";
@@ -753,4 +756,15 @@ header #headContact:hover #headAssistants {
 
 #more {
   display: none;
+}
+
+#blog .button {
+  width: 155px;
+  height: 45px;
+}
+
+#blog .line {
+  width: 2px;
+  height: 24px;
+  background-color: #d9d9d9;
 }
