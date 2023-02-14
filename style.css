@@ -276,6 +276,9 @@
 .l81-39 {
   line-height: 81.39px;
 }
+.h-46{
+  height: 46px
+}
 
 .rounded10 {
   border-radius: 10px;
@@ -362,6 +365,9 @@
 
 .text-green {
   color: #64ba67;
+}
+.bg-green-light{
+  background-color: #64ba67
 }
 
 .transition1 {
