@@ -874,3 +874,43 @@ header #headContact:hover #headAssistants {
 #footer .bg-dark--footer {
   background-color: #161625;
 }
+
+/* arcive Page */
+
+
+#categories .nav .active{
+  background:transparent;
+  color:#111;
+  font-weight:bold;
+}
+
+#categories .small_line {
+  width: 2px;
+  height: 24px;
+  background-color: #d9d9d9;
+}
+
+#categories input {
+  width: 100%;
+  height: 46px;
+  left: 44px;
+  top: 2188px;
+  border: none;
+  background: #f5f6f7;
+  border-radius: 10px;
+  padding: 0 90px 0 0;
+  font-size: 13px;
+}
+#categories .tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #fff;
+  top: 3px;
+  right: 10px;
+  font-size: 13px;
+  padding: 9px 20px;
+  border-radius: 10px;
+
+}
