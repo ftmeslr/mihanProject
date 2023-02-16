@@ -299,6 +299,7 @@
 .h-46 {
   height: 46px;
 }
+
 .h-213 {
   height: 213px;
 }
@@ -811,7 +812,6 @@ header #headContact:hover #headAssistants {
   font-size: 13px;
   padding: 9px 20px;
   border-radius: 10px;
-
 }
 #blog .button {
   width: 155px;
@@ -877,11 +877,10 @@ header #headContact:hover #headAssistants {
 
 /* arcive Page */
 
-
-#categories .nav .active{
-  background:transparent;
-  color:#111;
-  font-weight:bold;
+#categories .nav .active {
+  background: transparent;
+  color: #111;
+  font-weight: bold;
 }
 
 #categories .small_line {
@@ -912,12 +911,20 @@ header #headContact:hover #headAssistants {
   font-size: 13px;
   padding: 9px 20px;
   border-radius: 10px;
-
 }
-#categories ul{
+#categories ul {
   list-style: none;
-
 }
-#categories ul li p{
+#categories ul li p {
   margin-bottom: 0;
+}
+
+#categories .banner {
+  height: 136px;
+  background-color: #EAEAEA;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 26px 0 ;
 }
