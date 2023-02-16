@@ -921,10 +921,14 @@ header #headContact:hover #headAssistants {
 
 #categories .banner {
   height: 136px;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 26px 0 ;
+  margin: 26px 0;
+}
+
+#categories table td {
+  padding: 17px 0 17px 0;
 }
