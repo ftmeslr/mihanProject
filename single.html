@@ -207,14 +207,14 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                         <div class=" w-100 p-3 ">
                         <div class="d-flex justify-content-between">
                             <p class="f20 fw-bold">میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
-                            <div class="bg-gray rounded10 p-2 d-flex align-items-center justiffy-content-center" style="width:40px; height:40px">
+                            <div class="bg-gray rounded10 p-2 d-flex align-items-center justify-content-center" style="width:40px; height:40px">
                                 <i class="icon-close f11"></i>
                             </div>
                         </div>
                             <p class="text-subtitle f12">لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.</p>
                             
-                            <div class="d-flex">
-                                <p>سایز:</p>
+                            <div class="d-flex align-items-center">
+                                <p class="m-0 ms-2 f13">سایز:</p>
                                 <form onchange="test()" class="d-flex">
                                 <div class="form-check px-1" >
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked style="display: none" value="28">
@@ -254,8 +254,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                 
                             </div>
 
-                            <div class="d-flex">
-                                <p>استاندارد:</p>
+                            <div class="d-flex align-items-center my-3">
+                                <p class="m-0 ms-2 f13">استاندارد:</p>
                                 <form onchange="test2()" class="d-flex">
                                 <div class="form-check px-1" >
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked style="display: none" value="28">
@@ -274,8 +274,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                 
                             </div>
 
-                            <div class="d-flex">
-                                <p>وزن:</p>
+                            <div class="d-flex align-items-center">
+                                <p class="m-0 ms-2 f13">وزن:</p>
                                 <form onchange="test2()" class="d-flex">
                                 <div class="form-check px-1" >
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked style="display: none" value="28">
@@ -320,9 +320,45 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                         <p class="f12 bg-gray rounded10 p-2 text-subtitle m-0">واحد فروش : کیلوگرم</p>
                                         <input value="24" type="number" placeholder="234" class="border-0" style="width: 60px;">
                                     </div>
-                                    <button class="btn bg-green-light text-white">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bg-green-light text-white" data-toggle="modal" data-target="#exampleModal">
                                         افزودن به پیش فاکتور
                                     </button>
+                                    <!-- Button trigger modal -->
+  
+                                    <!-- Modal -->
+                                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog ">
+                                            <div class="d-flex modal-content d-flex col-12 flex-row p-4">
+                                                <div class="col-4 ">
+                                                    <div class="text-subtitle">اطلاعات سفارش درخواستی</div>
+                                                </div>
+                                                <div class="col-8 bg-gray">
+                                                    <div class="d-flex">
+                                                        <p class="f20">افزودن به پیش فاکتور</p>
+                                                        <i class="icon-close"></i>
+                                                    </div>
+                            
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle" for="name">نام و نام خانوادگی</label>
+                                                        <input name="name" id="name" type="text" class="rounded10 border bg-gray">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle" for="tel">نام و نام خانوادگی</label>
+                                                        <input name="tel" id="tel" type="text" class="rounded10 border bg-gray" >
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle " for="description">نام و نام خانوادگی</label>
+                                                        <textarea name="description" id="description" type="text" class="rounded10 border bg-gray"> </textarea>
+                                                    </div>
+                                                </div>
+                                                
+
+
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+  
                                 </div>
                             </div>
                         </div>
@@ -438,7 +474,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                             </div> 
         
                             <div class="col-8">
-                                    <div class="bg-white white-shadow p-4">
+                                    <div class="bg-white white-shadow p-4 rounded10">
                                         <p class="fw-bold">نوسانات قیمت میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
                                         <canvas id="line-chart"></canvas>
                                         <div class="d-flex align-items-center justify-content-center w-100 mt-4">

@@ -102,3 +102,10 @@ threeMounth.onclick = function() {
   oneMounth.classList.remove("activeTimeScale");
   threeMounth.classList.add("activeTimeScale");
 };
+
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})

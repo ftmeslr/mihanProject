@@ -43,123 +43,111 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #777;
 }
-
+.icon-category:before {
+  content: "\e91b";
+}
+.icon-chart:before {
+  content: "\e91c";
+}
+.icon-excel:before {
+  content: "\e91d";
+}
+.icon-Exchange:before {
+  content: "\e91e";
+}
+.icon-Printer:before {
+  content: "\e91f";
+}
 .icon-user:before {
   content: "\e900";
 }
-
 .icon-truck:before {
   content: "\e901";
 }
-
 .icon-telegram:before {
   content: "\e902";
   color: #f5f6f7;
 }
-
 .icon-steel:before {
   content: "\e903";
 }
-
 .icon-shield:before {
   content: "\e904";
 }
-
 .icon-search2:before {
   content: "\e905";
   color: #fff;
 }
-
 .icon-search:before {
   content: "\e906";
 }
-
 .icon-return:before {
   content: "\e907";
   color: #bababa;
 }
-
 .icon-priceUp:before {
   content: "\e908";
 }
-
 .icon-priceDown:before {
   content: "\e909";
   color: #e96666;
 }
-
 .icon-phone:before {
   content: "\e90a";
   color: #fff;
 }
-
 .icon-order4:before {
   content: "\e90b";
   color: #fff;
 }
-
 .icon-license:before {
   content: "\e90c";
   color: #43aa2b;
 }
-
 .icon-instagram:before {
   content: "\e90d";
   color: #f6f6f6;
 }
-
 .icon-heart2:before {
   content: "\e90e";
 }
-
 .icon-heart:before {
   content: "\e90f";
 }
-
 .icon-headphones:before {
   content: "\e910";
   color: #fff;
 }
-
 .icon-filter:before {
   content: "\e911";
   color: #777;
 }
-
 .icon-comment:before {
   content: "\e912";
 }
-
 .icon-close:before {
   content: "\e913";
   color: #777;
 }
-
 .icon-clock:before {
   content: "\e914";
 }
-
 .icon-chevron-left:before {
   content: "\e915";
 }
-
 .icon-chevron-down:before {
   content: "\e916";
 }
-
 .icon-basket2:before {
   content: "\e917";
 }
-
 .icon-basket:before {
   content: "\e918";
 }
-
 .icon-arrow-right:before {
   content: "\e919";
   color: #959595;
 }
-
 .icon-arrow-left:before {
   content: "\e91a";
   color: #959595;
