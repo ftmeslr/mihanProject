@@ -933,8 +933,8 @@ header #headContact:hover #headAssistants {
   padding: 17px 0 17px 0;
 }
 
-/*single Page */
 
+/*single Page */
 
 #singlePage .big_line {
   width: 100%;
@@ -943,7 +943,16 @@ header #headContact:hover #headAssistants {
   margin: 20px 0;
 }
 
-#singlePage .leftSideBar p{
-  margin:0
-
+#singlePage .leftSideBar p {
+  margin: 0;
 }
+
+#categories .timeScale {
+  border-radius: 100px;
+}
+
+#categories .activeTimeScale{
+  background-color: red;
+  color: #fff;
+}
+
