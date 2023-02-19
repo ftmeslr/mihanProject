@@ -642,6 +642,8 @@
                                   <li><a class="dropdown-item" href="#">Link 3</a></li>
                                 </ul>
                               </div> 
+                              <p class="text-red text-right f12 w-100 m-2 pe-4" id="Traslate"></p>
+
 
                               <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2">
                                 محاسبه
@@ -669,27 +671,35 @@
                                     </ul>
                                   </div> 
                                   <div class="dropdown w-100 mt-2 relative">
-                                   <input  />
+                                   <input id="length" />
                                    <div class="tag">
-                                    <p class="m-0">طول</p>
+                                    <p class="m-0" >طول</p>
                                    </div>
                                   </div> 
                                   <div class="dropdown w-100 mt-2">
-                                    <input  />
+                                    <input id="width" />
                                     <div class="tag">
-                                     <p class="m-0">عرض</p>
+                                     <p class="m-0" >عرض</p>
                                     </div>
                                   </div> 
                                   <div class="dropdown w-100 mt-2">
-                                    <input  />
+                                    <input id="height" />
                                    <div class="tag">
-                                    <p class="m-0">ارتفاع</p>
+                                    <p class="m-0" >ارتفاع</p>
                                    </div>
                                   </div> 
+                                  <p class="text-red text-right f12 w-100 m-2 pe-4" id="errorForCalculateWeight"></p>
     
-                                  <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2">
-                                    محاسبه
-                                  </button>
+                                  <div class="d-flex align-items-center justify-content-between">
+                                    <p class="m-0 ms-3" id="weight"></p>
+                                    <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2" onclick="submitForCalculateWeight()">
+                                        محاسبه
+                                      </button>
+                                  </div>
+                                  
+
+
+                                  
                             </div>
                            
                     </div>

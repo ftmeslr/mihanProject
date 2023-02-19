@@ -50,16 +50,15 @@ function test() {
     var test = label2[i];
     test.nextElementSibling.style.color = "black";
     test.nextElementSibling.style.border = "1px solid #fff";
-    test.nextElementSibling.style.backgroundColor = "#f5f6f7"
+    test.nextElementSibling.style.backgroundColor = "#f5f6f7";
   }
 
   label.style.border = "1px solid red";
   label.style.color = "red";
-  label.style.backgroundColor = "#fff"
+  label.style.backgroundColor = "#fff";
 
   console.log(label2);
 }
-
 
 function test2() {
   var label = document.querySelector(
@@ -71,41 +70,56 @@ function test2() {
     var test = label2[i];
     test.nextElementSibling.style.color = "black";
     test.nextElementSibling.style.border = "1px solid #fff";
-    test.nextElementSibling.style.backgroundColor = "#f5f6f7"
+    test.nextElementSibling.style.backgroundColor = "#f5f6f7";
   }
 
   label.style.border = "1px solid red";
   label.style.color = "red";
-  label.style.backgroundColor = "#fff"
+  label.style.backgroundColor = "#fff";
 
   console.log(label2);
 }
 
-
-var oneWeek = document.getElementById('oneWeek')
-oneWeek.onclick = function() { 
-oneWeek.classList.add("activeTimeScale");
-oneMounth.classList.remove("activeTimeScale");
-threeMounth.classList.remove("activeTimeScale");
+var oneWeek = document.getElementById("oneWeek");
+oneWeek.onclick = function () {
+  oneWeek.classList.add("activeTimeScale");
+  oneMounth.classList.remove("activeTimeScale");
+  threeMounth.classList.remove("activeTimeScale");
 };
 
-var oneMounth = document.getElementById('oneMounth')
-oneMounth.onclick = function() { 
+var oneMounth = document.getElementById("oneMounth");
+oneMounth.onclick = function () {
   oneWeek.classList.remove("activeTimeScale");
   oneMounth.classList.add("activeTimeScale");
   threeMounth.classList.remove("activeTimeScale");
 };
 
-var threeMounth = document.getElementById('threeMounth')
-threeMounth.onclick = function() { 
+var threeMounth = document.getElementById("threeMounth");
+threeMounth.onclick = function () {
   oneWeek.classList.remove("activeTimeScale");
   oneMounth.classList.remove("activeTimeScale");
   threeMounth.classList.add("activeTimeScale");
 };
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+var myModal = document.getElementById("myModal");
+var myInput = document.getElementById("myInput");
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
+myModal.addEventListener("shown.bs.modal", function () {
+  myInput.focus();
+});
+
+function submitForCalculateWeight() {
+  var regex = /^[0-9]+$/;
+  var width = document.getElementById("width").value;
+  var height = document.getElementById("height").value;
+  var length = document.getElementById("length").value;
+
+  if (!width.match(regex) || !height.match(regex) || !length.match(regex)) {
+    document.getElementById("errorForCalculateWeight").innerHTML =
+      "مقادیر ورودی را به درستی وارد کنید";
+  } else {
+    document.getElementById("errorForCalculateWeight").innerHTML = "";
+    let weight = (length * height * width * 7.85) / 1000;
+    document.getElementById("weight").innerHTML = weight.toFixed(2);
+  }
+}
