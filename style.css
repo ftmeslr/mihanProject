@@ -921,6 +921,16 @@ header #headContact:hover #headAssistants {
   padding: 17px 0 17px 0;
 }
 
+#categories #experts .icon-arrow-right::after,
+#categories #experts .icon-arrow-left::after {
+  display: none;
+}
+
+#categories #experts .icon-arrow-right,
+#categories #experts .icon-arrow-left {
+  width: 30px;
+  height: 30px;
+}
 
 /*single Page */
 
@@ -947,6 +957,11 @@ header #headContact:hover #headAssistants {
 
 
 
+
+
+.btn{
+  color: #fff;
+}
 .btn:hover{
   color: #64ba67;
   border: 1px solid #64ba67;

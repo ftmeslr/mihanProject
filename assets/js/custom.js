@@ -19,6 +19,15 @@ var swiper = new Swiper("#priceListSwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+var swiper = new Swiper("#experts", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 // Index -> priceList swiperJs
 
 function readMore() {
