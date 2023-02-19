@@ -612,45 +612,63 @@
                             <div class="border p-2 rounded10">
                                 <p class="f12 text-subtitle l20-35 m-0">معمولاً سختی حاکی از مقاومت در برابر تغییر شکل بوده و این خاصیت در فلزات معیاری از مقاومت آنها در برابر تغییر شکل پلاستیک یا مومسان است .</p>
                             </div>
-                            <div class="dropdown w-100 mt-2">
-                                <button type="button" class="f13 btn border dropdown-toggle w-100 d-flex align-items-center justify-content-between bg-gray h-46" data-bs-toggle="dropdown">
-                                  HB
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 3</a></li>
-                                </ul>
+                            <div class="dropdown w-100 mt-2" id="mySelect" onChange="getOption()">
+                                <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">
+                                    
+                                    <select id="select1" id="ddlViewBy" name="one" class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2">
+                                      <option>HB</option>
+                                      <option value="76.0">76.0</option>
+                                      <option value="80.7" >80.7</option>
+                                      <option value="85.5">85.5</option>
+                                      <option value="90.2">90.2</option>
+                                      <option value="96.0">96.0</option>
+                                      <option value="102" >102</option>
+                                      <option value="107">107</option>
+                                      <option value="114">114</option>
+                                      <option value="76.0">76.0</option>
+                                      <option value="121" >121</option>
+                                      <option value="127">127</option>
+                                      <option value="135">135</option>
+                                      <option value="143">143</option>
+                                      <option value="150" >150</option>
+                                      <option value="158">158</option>
+                                      <option value="166">166</option>
+                                      <option value="174">174</option>
+                                      <option value="182" >182</option>
+                                      <option value="191">191</option>
+                                      <option value="200">200</option>
+                                      <option value="209">209</option>
+                                      <option value="219" >219</option>
+                                      <option value="228">228</option>
+                                      <option value="238">238</option>
+                                      <option value="247" >247</option>
+                                      <option value="257">257</option>
+                                      <option value="268">268</option>
+                                      <option value="278">278</option>
+                                      <option value="289" >289</option>
+                                      <option value="299">299</option>
+                                      <option value="311">311</option>
+                                      <option value="322">322</option>
+                                      <option value="334" >334</option>
+                                      <option value="346">346</option>
+                                      <option value="358">358</option>
+                                    </select>
+                                </div> 
                               </div> 
-                              <div class="dropdown w-100 mt-2">
-                                <button type="button" class="f13 btn border dropdown-toggle w-100 d-flex align-items-center justify-content-between  h-46" data-bs-toggle="dropdown">
-                                  HV
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 3</a></li>
-                                </ul>
-                              </div> 
-                              <div class="dropdown w-100 mt-2">
-                                <button type="button" class="f13 btn border dropdown-toggle w-100 d-flex align-items-center justify-content-between  h-46" data-bs-toggle="dropdown">
-                                  HRC
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                  <li><a class="dropdown-item" href="#">Link 3</a></li>
-                                </ul>
-                              </div> 
+                              <div class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2 mt-2  d-flex align-items-center px-3">
+                                <p class="m-0" id="test1"></p>
+                              </div>
+                             <div class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2 mt-2 d-flex align-items-center px-3">
+                                <p class="m-0" id="test2"></p>
+                              </div>
+
                               <p class="text-red text-right f12 w-100 m-2 pe-4" id="Traslate"></p>
-
-
                               <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2">
                                 محاسبه
                               </button>
                         </div>
-                       
                     </div>
+                   
                       
                     <div class="col-6 ">
                             <div class="d-flex flex-column align-items-end justify-content-end bg-white p-4 rounded10 ms-2 white-shadow ">
@@ -659,7 +677,6 @@
                                     <p class="f13 text-subtitle">اعداد را به سانتی متر وارد نمایید</p>
                                     
                             </div>
-                           
                                 <div class="dropdown w-100 mt-4">
                                     <button type="button" class="f13 btn border dropdown-toggle w-100 d-flex align-items-center justify-content-between bg-gray h-46" data-bs-toggle="dropdown">
                                       محاسبه وزن تسمه
@@ -695,11 +712,7 @@
                                     <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2" onclick="submitForCalculateWeight()">
                                         محاسبه
                                       </button>
-                                  </div>
-                                  
-
-
-                                  
+                                  </div>        
                             </div>
                            
                     </div>
