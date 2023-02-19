@@ -944,3 +944,10 @@ header #headContact:hover #headAssistants {
   color: #fff;
 }
 
+
+
+
+.btn:hover{
+  color: #64ba67;
+  border: 1px solid #64ba67;
+}
