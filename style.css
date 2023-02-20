@@ -43,15 +43,61 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #777;
 }
+
+.icon-whatsapp-thin:before {
+  content: "\e920";
+}
+.icon-user-thin:before {
+  content: "\e921";
+}
+.icon-telegram-thin:before {
+  content: "\e922";
+}
+.icon-search-thin:before {
+  content: "\e923";
+}
+.icon-save-thin:before {
+  content: "\e924";
+}
+.icon-return-thin:before {
+  content: "\e925";
+}
+.icon-phone-thin:before {
+  content: "\e926";
+}
+.icon-heart-thin:before {
+  content: "\e927";
+}
+.icon-fire:before {
+  content: "\e928";
+  color: #f41c1c;
+}
+.icon-comment-thin:before {
+  content: "\e929";
+}
+.icon-close-thin:before {
+  content: "\e92a";
+}
+.icon-clock-thin:before {
+  content: "\e92b";
+}
+.icon-chevron-top-thin:before {
+  content: "\e92c";
+}
+.icon-chevron-down-thin:before {
+  content: "\e92d";
+}
+.icon-calendar-thin:before {
+  content: "\e92e";
+}
+.icon-arrow-left-thin:before {
+  content: "\e92f";
+}
 .icon-category:before {
   content: "\e91b";
 }
 .icon-chart:before {
   content: "\e91c";
-}
-.icon-chart:hover {
-  color: #64ba67;
-  cursor: pointer;
 }
 .icon-excel:before {
   content: "\e91d";
@@ -157,6 +203,7 @@
   color: #959595;
 }
 
+
 /* Icomoon */
 
 /* Global  */
@@ -175,6 +222,10 @@
   font-weight: 700;
   src: url("font/iransans/iransans-bold.woff2") format("woff2"),
     url("font/iransans/iransans-bold.ttf") format("truetype");
+}
+
+.f6 {
+  font-size: 6px;
 }
 
 .f9 {

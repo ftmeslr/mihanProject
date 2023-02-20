@@ -208,7 +208,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                         <div class="d-flex justify-content-between">
                             <p class="f20 fw-bold">میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
                             <div class="bg-gray rounded10 p-2 d-flex align-items-center justify-content-center" style="width:40px; height:40px">
-                                <i class="icon-close f11"></i>
+                                <i class="icon-save-thin f20 fw-bold"></i>
                             </div>
                         </div>
                             <p class="text-subtitle f12">لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.</p>
@@ -317,8 +317,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                 </div>
                                 <div class="d-flex">
                                     <div class="d-flex align-items-center px-2 py-1 border d-flex justify-content-center ms-2 rounded10">
-                                        <p class="f12 bg-gray rounded10 p-2 text-subtitle m-0">واحد فروش : کیلوگرم</p>
-                                        <input value="24" type="number" placeholder="234" class="border-0" style="width: 60px;">
+                                        <p class="f12 bg-gray rounded10 p-2 text-subtitle m-0 ms-3">واحد فروش : کیلوگرم</p>
+                                        <i onclick="increment()" class="icon-chevron-top-thin f6  fw-bold cursor-pointer"></i>
+                                        <input id="weightWant" value="24" type="text" placeholder="234" class="border-0 text-center" style="width: 60px;">
+                                        <i onclick="decrement()" class=" icon-chevron-down-thin f6 fw-bold cursor-pointer ms-2"></i>
+
                                     </div>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bg-green-light f13" data-toggle="modal" data-target="#exampleModal">
                                         افزودن به پیش فاکتور

@@ -247,3 +247,14 @@ function getOption() {
       document.getElementById("test2").innerHTML = "-";
   }
 }
+
+
+function decrement(){
+  if(Number(document.getElementById('weightWant').value) <= 0) {
+    return;
+  }
+  document.getElementById('weightWant').value = Number(document.getElementById('weightWant').value) - 1
+}
+function increment(){
+  document.getElementById('weightWant').value = Number(document.getElementById('weightWant').value) + 1
+}
