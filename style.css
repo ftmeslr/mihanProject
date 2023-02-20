@@ -49,6 +49,10 @@
 .icon-chart:before {
   content: "\e91c";
 }
+.icon-chart:hover {
+  color: #64ba67;
+  cursor: pointer;
+}
 .icon-excel:before {
   content: "\e91d";
 }
@@ -286,6 +290,9 @@
 }
 .h-46 {
   height: 46px;
+}
+.h-56 {
+  height: 56px;
 }
 
 .h-213 {
@@ -950,20 +957,33 @@ header #headContact:hover #headAssistants {
   border-radius: 100px;
 }
 
-#categories .activeTimeScale{
+#categories .activeTimeScale {
   background-color: red;
   color: #fff;
 }
 
-
-
-
-
-
-.btn{
+.btn {
   color: #fff;
 }
-.btn:hover{
+.btn:hover {
   color: #64ba67;
   border: 1px solid #64ba67;
+}
+
+.tableBorder {
+  border: 1px solid #64ba6777;
+}
+
+.activeCategoryTab{
+  background-color:#f5f6f7; 
+  color: #111;
+  border-radius: 20px;
+  padding:0 10px 0 10px;
+}
+
+.rounded-left{
+  border-radius:10px 0 0 10px;
+}
+.rounded-right{
+  border-radius:0 10px 10px 0;
 }
