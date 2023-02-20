@@ -99,6 +99,10 @@
 .icon-chart:before {
   content: "\e91c";
 }
+.icon-chart:hover {
+  color: #64ba67;
+  cursor: pointer;
+}
 .icon-excel:before {
   content: "\e91d";
 }
@@ -438,6 +442,7 @@
 }
 .bg-green-light {
   background-color: #64ba67;
+
 }
 
 .transition1 {
