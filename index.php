@@ -19,7 +19,7 @@
         </div>
     </section>
     <!-- HeroSlider -->
-
+<?php $terms = get_terms(array("taxonomy"=>"product_cat","hide_empty"=>true)); ?>
     <!-- index priceList -->
     <section id="priceList">
         <div class="container">
@@ -27,7 +27,7 @@
                 <h2 class="f32 l54-26 text-black fw-bold text-center mt-lg-4">لیست قیمت محصولات</h2>
                 <span class="text-subtitle f14 l23-74 text-center d-inline-flex align-items-center w-auto m-auto">
                     <span class="icon-return ms-2"></span>
-                    آخرین بروزرسانی: <span class="me-1">امروز</span>
+                    آخرین بروزرسانی: <?php if(!empty($terms)){ ?><span class="me-1"><?=get_last_post_date($terms[1]->slug); ?> پیش</span> <?php } ?>
                 </span>
 
                 <div class="d-flex align-items-start">
@@ -35,7 +35,6 @@
                     <div class="nav flex-column align-items-start white-shadow rounded10 py-2 nav-pills me-3 col-12 col-lg-2"
                         id="v-pills-tab" role="tablist" aria-orientation="vertical">
 <?php
-$terms = get_terms(array("taxonomy"=>"product_cat","hide_empty"=>true));
 $def = 0;
 foreach($terms as $t){
     echo '<button class="nav-link f15 l25-43 bg-transparent text-subtitle w-100 text-end position-relative'.(!$def ? " active" : "").'"
@@ -81,7 +80,7 @@ while(have_posts()){ the_post();
                                             <div class="priceProd d-flex align-items-center">
                                                 <div class="price d-flex flex-column align-items-end ps-2">
                                                     <span class="text-black f20 l30-52 fw-bold"><?=$product->get_price(); ?></span>
-                                                    <span class="f12 l20-35 text-subtitle">تومان</span>
+                                                    <span class="f12 l20-35 text-subtitle"><?=get_woocommerce_currency_symbol();?></span>
                                                 </div>
                                                 <i
                                                     class="icon-priceUp text-green rounded10 f11 cursor-pointer d-flex align-items-center justify-content-center"></i>

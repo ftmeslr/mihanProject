@@ -80,6 +80,7 @@
     <script src="<?php bloginfo("template_directory"); ?>/assets/js/jquery.min.js"></script>
     <script src="<?php bloginfo("template_directory"); ?>/assets/js/swiper-bundle.min.js"></script>
     <script src="<?php bloginfo("template_directory"); ?>/assets/js/custom.js"></script>
+
 </body>
 
 </html>

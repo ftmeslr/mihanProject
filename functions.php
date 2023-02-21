@@ -1,6 +1,9 @@
 <?php
 require_once("includes/settings.php");
-add_theme_support( 'post-thumbnails' );
+add_action( 'after_setup_theme',function(){
+    add_theme_support( 'woocommerce' );
+    add_theme_support( 'post-thumbnails' );
+});
 //Wordpress Init
 add_action('init',function(){
     //Register Nav Menus
@@ -27,7 +30,18 @@ add_filter('nav_menu_css_class', function($classes, $item, $args) {
     }
     return $classes;
 }, 1, 3);
+//Function to get like
 function get_likes(){
     return "0";
+}
+//Get last Post updated date
+function get_last_post_date($cat){
+    $query = new WP_Query(array("post_type"=>"product","showposts"=>"1","product_cat"=>$cat));
+    if($query->have_posts()){
+        $query->the_post();
+        return human_time_diff(get_the_modified_time('U'),current_time( 'U' ));
+    } else {
+        return "";
+    }
 }
 ?>
