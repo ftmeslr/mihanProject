@@ -27,99 +27,102 @@
                             </div>
                         </div>
                             <p class="text-subtitle f12"><?php the_excerpt(); ?></p>
+                            <form method="post">
+                            <?php 
+									if($product->has_child()){
+                                        ?>
+                                        
+                                        <script>
+                                            var prices = [];
+                                            <?php
+                                            $prices = $product->get_available_variations();
+                                            foreach($prices as $price){
+                                                $vals = "";
+                                                foreach($price['attributes'] as $key=>$val){
+                                                    //$key = substr($key,strlen("attribute_"));
+                                                    if(!empty($val)){
+                                                        $vals.="'".$key.'\':"'.$val.'",';
+                                                    }
+                                                }
+                                                if(strlen($vals)>0){
+                                                    $vals = substr($vals,0,-1);
+                                                }
+                                                echo 'prices[prices.length] = {'.$vals.',price:"'.number_format($price['display_price']).'",image:"'.$price['image']['url'].'"}'."\n";
+                                            }
+                                            ?>
+                                        </script>
+                                        <?php foreach($product->get_attributes() as $attr){
+                                            if($attr['variation'] == 1){
+                                                $pkey = strtolower(urlencode($attr->get_name()));
+                                            ?>
+                                             <div class="d-flex align-items-center"><p class="m-0 ms-2 f13"><?=wc_attribute_label($attr->get_name()); ?>: </p>
+                                                
+                                                <?php
+                                                foreach($attr->get_options() as $op){
+                                                    //print_r($attr);
+                                                    $val = get_term_by('id',$op,$attr->get_name());
+                                                    ?>
+                                                    <div class="form-check px-1" >
+                                                        <input class="form-check-input" type="radio" name="attribute_<?=$pkey; ?>" id="attribute_<?=$pkey."_".$op; ?>" style="display: none" value="<?=$val->slug; ?>">
+                                                        <label style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="attribute_<?=$pkey."_".$op; ?>">
+                                                            <?=$val->name; ?>
+                                                        </label>
+                                                    </div>
+                                                <?php } ?>
+                                               
+                                            </div>
+                                        <?php } }  ?>
+                                        <script>
+                                            function objectLength(obj) {
+                                                var result = 0;
+                                                for(var prop in obj) {
+                                                    if (obj.hasOwnProperty(prop)) {
+                                                    // or Object.prototype.hasOwnProperty.call(obj, prop)
+                                                    result++;
+                                                    }
+                                                }
+                                                return result;
+                                            }
+                                            var $ = jQuery;
+                                            $(function(){
+                                                $(".form-check.px-1 input").change(function(){
+                                                    var labs = []
+                                                    $(this).parent().parent().find("label").css({width:"32px",height:"32px",border:"none"})
+                                                    $(this).parent().find("label").css({"border":"1px solid red",width:"32px",height:"32px"});
+                                                    
+                                                    var items = $(".form-check.px-1 input:checked");
+                                                    for(i=0;i<items.length;i++){
+                                                        labs[labs.length] = {key:items.eq(i).attr("name"),val:items.eq(i).val()};
+                                                    }
+                                                    var price = 0;
+                                                    for(i=0;i<prices.length;i++){
+                                                        var check = true;
+                                                        for(j=0;j<labs.length;j++){
+                                                            if(!prices[i][labs[j].key] || prices[i][labs[j].key] != labs[j].val){
+                                                                check = false;
+                                                            }
+                                                        }
+                                                        if(check && objectLength(prices[i])-2 == labs.length ){
+                                                            $(".c-gallery__img .js-gallery-img").attr("src",prices[i]['image'])
+                                                            price = prices[i]['price'];
+                                                            break;
+                                                        }
+                                                    }
+                                                    
+                                                    if(price){
+                                                        $(".product_price").text(price);
+                                                        $("#addtobasket").show();
+                                                    } else {
+                                                        $(".product_price").text("نامشخص");
+                                                        $("#addtobasket").hide();
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                        <?php } ?>
+                                
+                                
                             
-                            <div class="d-flex align-items-center">
-                                <p class="m-0 ms-2 f13">سایز:</p>
-                                <form onchange="test()" class="d-flex">
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked style="display: none" value="28">
-                                        <label style="width:32px; height: 32px; border: 1px solid red; color: red;"  class="form-check-label rounded10 d-flex align-items-center justify-content-center f12 cursor-pointer " for="flexRadioDefault1">
-                                      28
-                                    </label>
-                                  </div>
-                                  <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: none" value="29">
-                                    <label  style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault2">
-                                      29
-                                    </label>
-                                  </div>
-
-                                  <div class="form-check px-1">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" style="display: none"  value="28">
-                                        <label style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault3" >
-                                            30
-                                        </label>
-                                  </div>
-
-                                  <div class="form-check px-1">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" style="display: none"  value="30">
-                                        <label style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault4" >
-                                            31
-                                        </label>   
-                                  </div>
-
-                                  <div class="form-check px-1">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5" style="display: none"  value="32">
-                                        <label style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault5" >
-                                            32
-                                        </label>
-                                  </div>
-                                  
-                                </form>
-                                
-                            </div>
-
-                            <div class="d-flex align-items-center my-3">
-                                <p class="m-0 ms-2 f13">استاندارد:</p>
-                                <form onchange="test2()" class="d-flex">
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked style="display: none" value="28">
-                                        <label style="width:32px; height: 32px; border: 1px solid red; color: red;"  class="form-check-label rounded10 d-flex align-items-center justify-content-center f12 cursor-pointer " for="flexRadioDefault6">
-                                            A3
-                                    </label>
-                                  </div>
-                                  <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" style="display: none" value="29">
-                                    <label  style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault7">
-                                      A4
-                                    </label>
-                                  </div>
- 
-                                </form>
-                                
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <p class="m-0 ms-2 f13">وزن:</p>
-                                <form onchange="test2()" class="d-flex">
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked style="display: none" value="28">
-                                        <label style="width:32px; height: 32px; border: 1px solid red; color: red;"  class="form-check-label rounded10 d-flex align-items-center justify-content-center f12 cursor-pointer " for="flexRadioDefault6">
-                                            10
-                                    </label>
-                                  </div>
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" style="display: none" value="29">
-                                    <label  style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault7">
-                                      11
-                                    </label>
-                                </div>
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" style="display: none" value="29">
-                                    <label  style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault7">
-                                      12
-                                    </label>
-                                </div>
-                                <div class="form-check px-1" >
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" style="display: none" value="29">
-                                    <label  style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="flexRadioDefault7">
-                                      13
-                                    </label>
-                                </div>
- 
-                                </form>
-   
-                            </div>
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex">
@@ -127,7 +130,7 @@
                                         قیمت:    
                                     </p>
                                     <p class="fw-bold m-0 mx-2">
-                                        19,970 <span>تومان</span> 
+                                        <span class="product_price"><?=$product->get_price(); ?></span> <span><?=get_woocommerce_currency_symbol();?></span> 
                                     </p>
                                 </div>
                                 <div class="d-flex">
@@ -138,83 +141,16 @@
                                         <i onclick="decrement()" class=" icon-chevron-down-thin f6 fw-bold cursor-pointer ms-2"></i>
 
                                     </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bg-green-light f13" data-toggle="modal" data-target="#exampleModal">
+                                    <button id="addtobasket" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bg-green-light f13" data-toggle="modal" data-target="#exampleModal">
                                         افزودن به پیش فاکتور
                                     </button>
                                     <!-- Button trigger modal -->
   
-                                    <!-- Modal -->
-                                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="d-flex modal-content d-flex col-12 flex-row  rounded10">
-                                                <div class="col-5 p-4">
-                                                    <div class="text-subtitle">اطلاعات سفارش درخواستی</div>
-                                                    <div class="big_line"></div>
-                                                    <p class="text-subtitle f13"> نام محصول:</p>
-                                                    <p class="fw-bold f13"> میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
-                                                    <p class="text-subtitle f13"> مشخصات محصول:</p>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >سایز:</p>
-                                                            <p class="fw-bold">28</p>
-                                                        </div>
-
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >وزن:</p>
-                                                            <p class="fw-bold">10</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >استاندارد:</p>
-                                                            <p class="fw-bold">A3</p>
-                                                        </div>
-
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >میزان:</p>
-                                                            <p class="fw-bold">100 کیلوگرم</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >مبلغ پیش فاکتور:</p>
-                                                            <p class="fw-bold">A3</p>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <button class="w-100 bg-dark text-white border-0 h-46 rounded10">ویرایش سفارش</button>
-                                                </div>
-                                                <div class="col-7 bg-gray p-4 rounded10">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <p class="f20 m-0">افزودن به پیش فاکتور</p>
-                                                        <i class="f12 icon-close"></i>
-                                                    </div>
-                            
-                                                    <div class="d-flex flex-column">
-                                                        <label class="f13 text-subtitle mt-3 mb-1" for="name">نام و نام خانوادگی</label>
-                                                        <input name="name" id="name" type="text" class="rounded10 border bg-gray h-46">
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <label class="f13 text-subtitle  mt-3 mb-1" for="tel">شماره تماس</label>
-                                                        <input name="tel" id="tel" type="text" class="rounded10 border bg-gray h-46" >
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <label class="f13 text-subtitle mt-3 mb-1" for="description">توضیحات</label>
-                                                        <textarea name="description" id="description" type="text" class="rounded10 border bg-gray "> </textarea>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between align-items-center mt-3">
-                                                        <p class="m-0 f12 text-subtitle">پس از ثبت پیش فاکتور، همکاران ما با شما تماس خواهند گرفت</p>
-                                                        <button class="bg-green-light border-0 text-white f13 px-2 h-46 rounded10">ثبت پیش فاکتور</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
   
                                 </div>
                             </div>
+                        </form>
                         </div>
                         </div>
                 </div>
@@ -242,7 +178,7 @@
                         <div class="big_line"></div>
                         <div class="d-flex justify-content-between align-items-center f13">
                             <p>نوع</p>
-                            <p class="fw-bold"><?=$product->get_attribute( 'pa_tyep' ); ?></p>
+                            <p class="fw-bold"><?=$product->get_attribute( 'pa_tyeps' ); ?></p>
                         </div>
                     </div>
                 </div>
@@ -372,6 +308,76 @@
             </div>
 
         </div>
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="d-flex modal-content d-flex col-12 flex-row  rounded10">
+                                                <div class="col-5 p-4">
+                                                    <div class="text-subtitle">اطلاعات سفارش درخواستی</div>
+                                                    <div class="big_line"></div>
+                                                    <p class="text-subtitle f13"> نام محصول:</p>
+                                                    <p class="fw-bold f13"> میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
+                                                    <p class="text-subtitle f13"> مشخصات محصول:</p>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >سایز:</p>
+                                                            <p class="fw-bold">28</p>
+                                                        </div>
+
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >وزن:</p>
+                                                            <p class="fw-bold">10</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >استاندارد:</p>
+                                                            <p class="fw-bold">A3</p>
+                                                        </div>
+
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >میزان:</p>
+                                                            <p class="fw-bold">100 کیلوگرم</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >مبلغ پیش فاکتور:</p>
+                                                            <p class="fw-bold">A3</p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <button class="w-100 bg-dark text-white border-0 h-46 rounded10">ویرایش سفارش</button>
+                                                </div>
+                                                <div class="col-7 bg-gray p-4 rounded10">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <p class="f20 m-0">افزودن به پیش فاکتور</p>
+                                                        <i class="f12 icon-close"></i>
+                                                    </div>
+                            
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle mt-3 mb-1" for="name">نام و نام خانوادگی</label>
+                                                        <input name="name" id="name" type="text" class="rounded10 border bg-gray h-46">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle  mt-3 mb-1" for="tel">شماره تماس</label>
+                                                        <input name="tel" id="tel" type="text" class="rounded10 border bg-gray h-46" >
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle mt-3 mb-1" for="description">توضیحات</label>
+                                                        <textarea name="description" id="description" type="text" class="rounded10 border bg-gray "> </textarea>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                                        <p class="m-0 f12 text-subtitle">پس از ثبت پیش فاکتور، همکاران ما با شما تماس خواهند گرفت</p>
+                                                        <button class="bg-green-light border-0 text-white f13 px-2 h-46 rounded10">ثبت پیش فاکتور</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script>
             new Chart(document.getElementById("line-chart"), {

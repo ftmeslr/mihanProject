@@ -44,4 +44,8 @@ function get_last_post_date($cat){
         return "";
     }
 }
+//enqueue Jquery
+add_action("wp_enqueue_scripts",function(){
+    wp_enqueue_script('jquery');
+});
 ?>
