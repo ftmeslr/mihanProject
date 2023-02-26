@@ -455,6 +455,10 @@
   font-family: "irbold";
 }
 
+.w-182 {
+  width: 182px;
+}
+
 .text-justify {
   text-align: justify;
 }
