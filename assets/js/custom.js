@@ -1,34 +1,76 @@
-// Header -> Search box opener
-$("header #searchIcon #searchIconTrigger").click(function () {
-  if ($(this).hasClass("active")) {
-    $(this).removeClass("active");
-    $(this).parent().find("form").fadeOut();
-  } else {
-    $(this).addClass("active");
-    $(this).parent().find("form").fadeIn();
+function setCookie(cname, cvalue, exdays=30) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
   }
-});
-// Header -> Search box opener
+  return false;
+}
 
-// Index -> priceList swiperJs
-var swiper = new Swiper("#priceListSwiper", {
-  slidesPerView: 4,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+    user = prompt("Please enter your name:", "");
+    if (user != "" && user != null) {
+      setCookie("username", user, 365);
+    }
+  }
+}
+function AddTobasket(row){
+  var basket = getCookie("mfoolad_basket");
+  if(!basket){ basket = []; }
+  basket.push(row);
+  setCookie("mfoolad_basket",basket);
+}
+$(function(){
+  // Header -> Search box opener
+  $("header #searchIcon #searchIconTrigger").click(function () {
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
+      $(this).parent().find("form").fadeOut();
+    } else {
+      $(this).addClass("active");
+      $(this).parent().find("form").fadeIn();
+    }
+  });
+  // Header -> Search box opener
 
-var swiper = new Swiper("#experts", {
-  slidesPerView: 1,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-// Index -> priceList swiperJs
+  // Index -> priceList swiperJs
+  var swiper = new Swiper("#priceListSwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  var swiper = new Swiper("#experts", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  // Index -> priceList swiperJs
+})
+
 
 function readMore() {
   var dots = document.getElementById("dots");
@@ -46,8 +88,7 @@ function readMore() {
   }
 }
 
-var flexRadioDefault1 = document.getElementById("flexRadioDefault1").value;
-console.log(flexRadioDefault1);
+
 
 function test() {
   var label = document.querySelector(
