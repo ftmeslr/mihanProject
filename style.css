@@ -357,9 +357,8 @@
   border-radius: 10px;
 }
 
-.rounded50{
+.rounded50 {
   border-radius: 50px;
-
 }
 
 .rounded100 {
@@ -405,6 +404,9 @@
   background-color: #f41c1c;
 }
 
+.bg-dark-blue {
+  background-color: #104eab;
+}
 .border-red {
   border-color: #f41c1c;
 }
