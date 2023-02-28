@@ -1,16 +1,16 @@
-function setCookie(cname, cvalue, exdays=30) {
+function setCookie(cname, cvalue, exdays = 30) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
   let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
+  let ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
@@ -19,14 +19,16 @@ function getCookie(cname) {
   }
   return false;
 }
-function AddTobasket(row){
+function AddTobasket(row) {
   var basket = getCookie("mfoolad_basket");
-  if(!basket || typeof(basket) != "string"){ basket = JSON.stringify([]); }
+  if (!basket || typeof basket != "string") {
+    basket = JSON.stringify([]);
+  }
   basket = JSON.parse(basket);
   basket.push(row);
-  setCookie("mfoolad_basket",JSON.stringify(basket));
+  setCookie("mfoolad_basket", JSON.stringify(basket));
 }
-$(function(){
+$(function () {
   // Header -> Search box opener
   $("header #searchIcon #searchIconTrigger").click(function () {
     if ($(this).hasClass("active")) {
@@ -58,8 +60,7 @@ $(function(){
     },
   });
   // Index -> priceList swiperJs
-})
-
+});
 
 function readMore() {
   var dots = document.getElementById("dots");
@@ -76,8 +77,6 @@ function readMore() {
     moreText.style.display = "inline";
   }
 }
-
-
 
 function test() {
   var label = document.querySelector(
@@ -120,7 +119,7 @@ function test2() {
 }
 
 var oneWeek = document.getElementById("oneWeek");
-if(oneWeek){
+if (oneWeek) {
   oneWeek.onclick = function () {
     oneWeek.classList.add("activeTimeScale");
     oneMounth.classList.remove("activeTimeScale");
@@ -129,7 +128,7 @@ if(oneWeek){
 }
 
 var oneMounth = document.getElementById("oneMounth");
-if(oneMounth){
+if (oneMounth) {
   oneMounth.onclick = function () {
     oneWeek.classList.remove("activeTimeScale");
     oneMounth.classList.add("activeTimeScale");
@@ -138,7 +137,7 @@ if(oneMounth){
 }
 
 var threeMounth = document.getElementById("threeMounth");
-if(threeMounth){
+if (threeMounth) {
   threeMounth.onclick = function () {
     oneWeek.classList.remove("activeTimeScale");
     oneMounth.classList.remove("activeTimeScale");
@@ -148,7 +147,7 @@ if(threeMounth){
 
 var myModal = document.getElementById("myModal");
 var myInput = document.getElementById("myInput");
-if(myModal){
+if (myModal) {
   myModal.addEventListener("shown.bs.modal", function () {
     myInput.focus();
   });
@@ -285,13 +284,23 @@ function getOption() {
   }
 }
 
-
-function decrement(){
-  if(Number(document.getElementById('weightWant').value) <= 0) {
+function decrement() {
+  if (Number(document.getElementById("weightWant").value) <= 0) {
     return;
   }
-  document.getElementById('weightWant').value = Number(document.getElementById('weightWant').value) - 1
+  document.getElementById("weightWant").value =
+    Number(document.getElementById("weightWant").value) - 1;
 }
-function increment(){
-  document.getElementById('weightWant').value = Number(document.getElementById('weightWant').value) + 1
+function increment() {
+  document.getElementById("weightWant").value =
+    Number(document.getElementById("weightWant").value) + 1;
+}
+
+// copy text
+
+function copyText() {
+  const input = document.getElementById("myInput"); // replace "myInput" with the ID of your input field
+  console.log(input);
+
+  navigator.clipboard.writeText(input.value);
 }

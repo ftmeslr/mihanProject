@@ -278,7 +278,9 @@
 .f32 {
   font-size: 32px;
 }
-
+.f30 {
+  font-size: 30px;
+}
 .f40 {
   font-size: 40px;
 }
@@ -345,12 +347,21 @@
 .h-46 {
   height: 46px;
 }
+
+.h-50 {
+  height: 50px !important;
+  
+}
 .h-56 {
   height: 56px;
 }
 
 .h-213 {
   height: 213px;
+}
+
+.rounded-5 {
+  border-radius: 5px;
 }
 
 .rounded10 {
@@ -369,7 +380,11 @@
   border-radius: 3rem;
 }
 
-.my-10 {
+.text-left{
+  text-align: left;
+  padding-left: 15px;
+  
+
 }
 
 .white-shadow {
@@ -1090,4 +1105,17 @@ header #headContact:hover #headAssistants {
 
 .mt-230 {
   margin-top: 230px;
+}
+#SingleBlog .readMoreBox {
+  background-color: #f5f6f7;
+  transition: 0.3s;
+}
+
+#SingleBlog .readMoreBox:hover {
+  background-color: #f53131;
+  color: #fff;
+}
+
+#SingleBlog .btn-abs {
+  right: 5px;
 }
