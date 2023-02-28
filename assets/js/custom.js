@@ -19,23 +19,12 @@ function getCookie(cname) {
   }
   return false;
 }
-
-function checkCookie() {
-  let user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-    user = prompt("Please enter your name:", "");
-    if (user != "" && user != null) {
-      setCookie("username", user, 365);
-    }
-  }
-}
 function AddTobasket(row){
   var basket = getCookie("mfoolad_basket");
-  if(!basket){ basket = []; }
+  if(!basket || typeof(basket) != "string"){ basket = JSON.stringify([]); }
+  basket = JSON.parse(basket);
   basket.push(row);
-  setCookie("mfoolad_basket",basket);
+  setCookie("mfoolad_basket",JSON.stringify(basket));
 }
 $(function(){
   // Header -> Search box opener
@@ -131,32 +120,39 @@ function test2() {
 }
 
 var oneWeek = document.getElementById("oneWeek");
-oneWeek.onclick = function () {
-  oneWeek.classList.add("activeTimeScale");
-  oneMounth.classList.remove("activeTimeScale");
-  threeMounth.classList.remove("activeTimeScale");
-};
+if(oneWeek){
+  oneWeek.onclick = function () {
+    oneWeek.classList.add("activeTimeScale");
+    oneMounth.classList.remove("activeTimeScale");
+    threeMounth.classList.remove("activeTimeScale");
+  };
+}
 
 var oneMounth = document.getElementById("oneMounth");
-oneMounth.onclick = function () {
-  oneWeek.classList.remove("activeTimeScale");
-  oneMounth.classList.add("activeTimeScale");
-  threeMounth.classList.remove("activeTimeScale");
-};
+if(oneMounth){
+  oneMounth.onclick = function () {
+    oneWeek.classList.remove("activeTimeScale");
+    oneMounth.classList.add("activeTimeScale");
+    threeMounth.classList.remove("activeTimeScale");
+  };
+}
 
 var threeMounth = document.getElementById("threeMounth");
-threeMounth.onclick = function () {
-  oneWeek.classList.remove("activeTimeScale");
-  oneMounth.classList.remove("activeTimeScale");
-  threeMounth.classList.add("activeTimeScale");
-};
+if(threeMounth){
+  threeMounth.onclick = function () {
+    oneWeek.classList.remove("activeTimeScale");
+    oneMounth.classList.remove("activeTimeScale");
+    threeMounth.classList.add("activeTimeScale");
+  };
+}
 
 var myModal = document.getElementById("myModal");
 var myInput = document.getElementById("myInput");
-
-myModal.addEventListener("shown.bs.modal", function () {
-  myInput.focus();
-});
+if(myModal){
+  myModal.addEventListener("shown.bs.modal", function () {
+    myInput.focus();
+  });
+}
 
 function submitForCalculateWeight() {
   var regex = /^[0-9]+$/;
