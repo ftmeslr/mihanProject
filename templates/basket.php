@@ -1,6 +1,6 @@
 <?php
 /*
-template name: estelam
+template name: Basket
 */
 get_header();
 ?>
@@ -19,22 +19,32 @@ get_header();
                                 <th class="pb-3" scope="col">نام کالا</th>
                                 <th class="pb-3" scope="col">واحد</th>
                                 <th class="pb-3" scope="col">مقدار </th>
-                                <th class="pb-3" scope="col"> مبلغ واحد (ریال)</th>
-                                <th class="pb-3" scope="col">مبلغ واحد با ارزش افزوده</th>
-                                <th class="pb-3" scope="col">مبلغ کل (ريال)</th>
+                                <th class="pb-3" scope="col">مبلغ واحد (<?=get_woocommerce_currency_symbol();?>)</th>
+                                <th class="pb-3" scope="col">مبلغ کل (<?=get_woocommerce_currency_symbol();?>)</th>
+                                <th class="pb-3" scope="col">توضیحات</th>
                                 <th class="pb-3" scope="col">حذف<th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td><p class="m-0 my-3 fw-bold">1</p></td>
-                                <td><p class="m-0 my-3 "> تبدیل "5*"6*"8 درزدار </p></td>
-                                <td><p class="m-0 my-3">265,140</p></td>
-                                <td><p class="m-0 my-3">(قیمت قبل :12,460,000)</p></td>
-                                <td><p class="m-0 my-3">(قیمت قبل :12,460,000)</p></td>
-                                <td><p class="m-0 my-3">(قیمت قبل :12,460,000)</p></td>
-                                <td><p class="m-0 my-3">(قیمت قبل :12,460,000)</p></td>
+<?php
+$basket = json_decode(str_replace('\"','"',$_COOKIE['mfoolad_basket']),true);
+$i = 1;
+$price = 0;
+foreach($basket as $b){
+    $prod = false;
+    if($b['prod'] != "0"){ $prod = wc_get_product($b['prod']); $price+= $prod->get_price(); }
+?>
+                            <tr>
+                                <td><p class="m-0 my-3 fw-bold"><?=$i; ?></p></td>
+                                <td><p class="m-0 my-3 "><?=($b['prod'] == "0" ? $b['title'] : get_the_title($b['prod']));?></p></td>
+                                <td><p class="m-0 my-3">کیلوگرم</p></td>
+                                <td><p class="m-0 my-3"><?=$b['count']; ?></p></td>
+                                <td><p class="m-0 my-3"><?=($b['prod'] != "0" ? $prod->get_price() : "-"); ?></p></td>
+                                <td><p class="m-0 my-3"><?=($b['prod'] != "0" ? $prod->get_price() * $b['count'] : "-"); ?></p></td>
+                                <td><p class="m-0 my-3"><?=($b['prod'] == "0" ? $b['desc'] : "-"); ?></p></td>
                                 <td class="pt-4  cursor-pointer"><i class="icon-close f12 ">  </i></td>
+                            </tr>
+<?php $i+=1; } ?>
                             </tbody>
                           </table>
 
@@ -43,24 +53,17 @@ get_header();
                     <div class="col-4 d-flex justify-content-between ">
                         جمع کل : 
                         <span class="d-flex text-subtitle">
-                            200000000 تومان
+                            <?=number_format($price); ?> <?=get_woocommerce_currency_symbol();?>
                             <div class="small_line me-3"></div>
 
                         </span>
                     </div>
-                    <div class="col-4 d-flex justify-content-between">
-                        جمع کل به حروف: 
-                        <span class="d-flex text-subtitle">
-                            دویست ملیون تومان
-                            <div class="small_line me-3"></div>
 
-                        </span>
-                    </div>
                     <div class="col-4 justify-content-between p-0">
                         <div class=" d-flex justify-content-between">
                             مبلغ قابل پرداخت: 
                             <span class="text-subtitle">
-                                دویست ملیون تومان
+                                <?=number_format($price); ?> <?=get_woocommerce_currency_symbol();?>
                             </span>
                         </div>
                         <div class="col-4 d-flex w-100 mt-4">
@@ -74,4 +77,73 @@ get_header();
             </div>
         </div>
         </section>
+    <!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="d-flex modal-content d-flex col-12 flex-row  rounded10">
+                                                <div class="col-5 p-4">
+                                                    <div class="text-subtitle">اطلاعات سفارش درخواستی</div>
+                                                    <div class="big_line"></div>
+                                                    <p class="text-subtitle f13"> نام محصول:</p>
+                                                    <p class="fw-bold f13"> میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
+                                                    <p class="text-subtitle f13"> مشخصات محصول:</p>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >سایز:</p>
+                                                            <p class="fw-bold">28</p>
+                                                        </div>
+
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >وزن:</p>
+                                                            <p class="fw-bold">10</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >استاندارد:</p>
+                                                            <p class="fw-bold">A3</p>
+                                                        </div>
+
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >میزان:</p>
+                                                            <p class="fw-bold">100 کیلوگرم</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between f13">
+                                                        <div class="d-flex align-items-center ">
+                                                            <p >مبلغ پیش فاکتور:</p>
+                                                            <p class="fw-bold">A3</p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <button class="w-100 bg-dark text-white border-0 h-46 rounded10">ویرایش سفارش</button>
+                                                </div>
+                                                <div class="col-7 bg-gray p-4 rounded10">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <p class="f20 m-0">افزودن به پیش فاکتور</p>
+                                                        <i class="f12 icon-close"></i>
+                                                    </div>
+                            
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle mt-3 mb-1" for="name">نام و نام خانوادگی</label>
+                                                        <input name="name" id="name" type="text" class="rounded10 border bg-gray h-46">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle  mt-3 mb-1" for="tel">شماره تماس</label>
+                                                        <input name="tel" id="tel" type="text" class="rounded10 border bg-gray h-46" >
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <label class="f13 text-subtitle mt-3 mb-1" for="description">توضیحات</label>
+                                                        <textarea name="description" id="description" type="text" class="rounded10 border bg-gray "> </textarea>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                                        <p class="m-0 f12 text-subtitle">پس از ثبت پیش فاکتور، همکاران ما با شما تماس خواهند گرفت</p>
+                                                        <button class="bg-green-light border-0 text-white f13 px-2 h-46 rounded10">ثبت پیش فاکتور</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 <?php get_footer(); ?>
