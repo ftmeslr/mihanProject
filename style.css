@@ -252,7 +252,7 @@
 }
 
 .f15 {
-  font-size: 15px;
+  font-size: 15px !important;
 }
 
 .f16 {
@@ -350,7 +350,6 @@
 
 .h-50 {
   height: 50px !important;
-  
 }
 .h-56 {
   height: 56px;
@@ -380,11 +379,9 @@
   border-radius: 3rem;
 }
 
-.text-left{
+.text-left {
   text-align: left;
   padding-left: 15px;
-  
-
 }
 
 .white-shadow {
@@ -494,6 +491,7 @@
 body * {
   font-family: "iransans";
   outline: none;
+  list-style: none;
 }
 
 body a {
@@ -1118,4 +1116,27 @@ header #headContact:hover #headAssistants {
 
 #SingleBlog .btn-abs {
   right: 5px;
+}
+
+/*blogs */
+
+#mainBlogs .image__box {
+  width: 91px;
+  height: 91px;
+}
+
+#mainBlogs p {
+  margin: 0;
+}
+
+#mainBlogs .image_blog_box {
+  width: 100%;
+  height: 434px;
+}
+
+#mainBlogs .bottom-5 {
+  bottom: 50px;
+}
+#mainBlogs .right-50 {
+  right: 50px !important;
 }
