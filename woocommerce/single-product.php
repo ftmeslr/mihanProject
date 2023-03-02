@@ -30,6 +30,7 @@
                             <form method="post">
                             <?php 
 									if($product->has_child()){
+                                        
                                         ?>
                                         
                                         <script>
@@ -58,13 +59,13 @@
                                              <div class="d-flex align-items-center"><p class="m-0 ms-2 f13"><?=wc_attribute_label($attr->get_name()); ?>: </p>
                                                 
                                                 <?php
+                                                $def = $product->default_attributes;
                                                 foreach($attr->get_options() as $op){
-                                                    //print_r($attr);
                                                     $val = get_term_by('id',$op,$attr->get_name());
                                                     ?>
                                                     <div class="form-check px-1" >
-                                                        <input class="form-check-input" type="radio" name="attribute_<?=$pkey; ?>" id="attribute_<?=$pkey."_".$op; ?>" style="display: none" value="<?=$val->slug; ?>">
-                                                        <label style="width:32px; height: 32px;" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="attribute_<?=$pkey."_".$op; ?>">
+                                                        <input class="form-check-input" type="radio" name="attribute_<?=$pkey; ?>" id="attribute_<?=$pkey."_".$op; ?>" style="display: none" value="<?=$val->slug; ?>"<?=(isset($def[$pkey]) && $def[$pkey] == $val->slug ? " checked" : "");?>>
+                                                        <label style="width:32px; height: 32px;<?=(isset($def[$pkey]) && $def[$pkey] == $val->slug ? "border:1px solid red" : "");?>" class="form-check-label rounded10 d-flex align-items-center justify-content-center bg-gray f12 cursor-pointer" for="attribute_<?=$pkey."_".$op; ?>">
                                                             <?=$val->name; ?>
                                                         </label>
                                                     </div>

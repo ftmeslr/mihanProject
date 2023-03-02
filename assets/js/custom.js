@@ -29,6 +29,26 @@ function AddTobasket(row) {
   setCookie("mfoolad_basket", JSON.stringify(basket));
 }
 $(function () {
+  //add to  basket
+  $(".addtobasket").click(function(e){
+    e.preventDefault();
+    if($(this).data("pid")){
+      var cnt = 1;
+      if($("#weightWant").length > 0){ cnt = $("#weightWant").val(); }
+      var row = {prod:$(this).data("pid"),count:cnt}
+      if($(".form-check-input").length > 0){
+        var attrs = [];
+        var childs = $(".form-check-input:checked");
+        for(i=0;i<childs.length;i++){
+          attrs.push({key:childs.eq(i).attr("name"),val:childs.eq(i).val()});
+        }
+        row['attrs'] = attrs;
+      }
+      AddTobasket(row);
+      alert("محصول به سبد خرید شما افزوده شد")
+    }
+  })
+
   // Header -> Search box opener
   $("header #searchIcon #searchIconTrigger").click(function () {
     if ($(this).hasClass("active")) {

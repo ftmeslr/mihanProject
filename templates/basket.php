@@ -32,7 +32,7 @@ $i = 1;
 $price = 0;
 foreach($basket as $b){
     $prod = false;
-    if($b['prod'] != "0"){ $prod = wc_get_product($b['prod']); $price+= $prod->get_price(); }
+    if($b['prod'] != "0"){ $prod = wc_get_product($b['prod']); $price+= $prod->get_price() * $b['count']; }
 ?>
                             <tr>
                                 <td><p class="m-0 my-3 fw-bold"><?=$i; ?></p></td>
