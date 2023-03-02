@@ -1140,3 +1140,25 @@ header #headContact:hover #headAssistants {
 #mainBlogs .right-50 {
   right: 50px !important;
 }
+
+#mainBlogs .h-300 {
+  height: 300px;
+}
+
+.pagination-btn {
+  width: 45px;
+  height: 45px;
+}
+
+.pagination-btn-hover {
+  border: 1px solid #ccc;
+}
+.pagination-btn-hover:hover {
+  border: 1px solid red;
+  color: red;
+  cursor: pointer;
+}
+
+#news .h-250 {
+  height: 250px;
+}
