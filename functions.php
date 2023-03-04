@@ -14,8 +14,8 @@ add_action('init',function(){
         'footer_products'=> 'منوی محصولات فوتر',
     ));
     //Registe Custom Post types + Taxonomies
-    register_post_type("news",array("label"=>"اخبار","public"=>true,'taxonomies'=>array('post_tag','category'),"supports"=>array("title","editor","thumbnail","comments","excerpt") ));
-    register_post_type("articles",array("label"=>"مقالات","public"=>true,'taxonomies'=>array('post_tag','category'),"supports"=>array("title","editor","thumbnail","comments","excerpt") ));
+    register_post_type("news",array("label"=>"اخبار","public"=>true,"has_archive"=>true,'taxonomies'=>array('post_tag','category'),"supports"=>array("title","editor","thumbnail","comments","excerpt") ));
+    register_post_type("articles",array("label"=>"مقالات","public"=>true,"has_archive"=>true,'taxonomies'=>array('post_tag','category'),"supports"=>array("title","editor","thumbnail","comments","excerpt") ));
 });
 //Add Class Name for wpnavmenu
 add_filter( 'nav_menu_link_attributes',function( $atts, $item, $args ) {
@@ -48,4 +48,10 @@ function get_last_post_date($cat){
 add_action("wp_enqueue_scripts",function(){
     wp_enqueue_script('jquery');
 });
+//Set post types in category and tags archive page
+add_action("pre_get_posts",function($query){
+    if(($query->is_category() || $query->is_tag()) && $query->is_main_query()){
+        $query->set("post_type",array("post","articles","news"));
+    }
+})
 ?>

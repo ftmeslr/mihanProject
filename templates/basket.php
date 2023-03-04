@@ -32,11 +32,24 @@ $i = 1;
 $price = 0;
 foreach($basket as $b){
     $prod = false;
-    if($b['prod'] != "0"){ $prod = wc_get_product($b['prod']); $price+= $prod->get_price() * $b['count']; }
+    if($b['prod'] != "0"){ 
+        $prod = wc_get_product($b['prod']); $price+= $prod->get_price() * $b['count'];
+        
+    }
 ?>
                             <tr>
                                 <td><p class="m-0 my-3 fw-bold"><?=$i; ?></p></td>
-                                <td><p class="m-0 my-3 "><?=($b['prod'] == "0" ? $b['title'] : get_the_title($b['prod']));?></p></td>
+                                <td><p class="m-0 my-3 "><?=($b['prod'] == "0" ? $b['title'] : get_the_title($b['prod']));?></p>
+                                <?php if(isset($b['attrs'])){ ?><p>(
+<?php
+    $out = [];
+    foreach($b['attrs'] as $a){
+        $out[] = wc_attribute_label(substr($a['key'],10))." : ".$a['val'];
+    }
+    echo implode(" - ",$out);
+?>
+                                )</p> <?php } ?>
+                                </td>
                                 <td><p class="m-0 my-3">کیلوگرم</p></td>
                                 <td><p class="m-0 my-3"><?=$b['count']; ?></p></td>
                                 <td><p class="m-0 my-3"><?=($b['prod'] != "0" ? $prod->get_price() : "-"); ?></p></td>
@@ -67,7 +80,7 @@ foreach($basket as $b){
                             </span>
                         </div>
                         <div class="col-4 d-flex w-100 mt-4">
-                            <button class="btn bg-green-light rounded10 bg-green-light f13 h-46 w-100" onclick="addProduct()">
+                            <button class="btn bg-green-light rounded10 bg-green-light f13 h-46 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               صدور پیش فاکتور  
                             </button>
                         </div>
@@ -81,45 +94,8 @@ foreach($basket as $b){
 <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="d-flex modal-content d-flex col-12 flex-row  rounded10">
-                                                <div class="col-5 p-4">
-                                                    <div class="text-subtitle">اطلاعات سفارش درخواستی</div>
-                                                    <div class="big_line"></div>
-                                                    <p class="text-subtitle f13"> نام محصول:</p>
-                                                    <p class="fw-bold f13"> میلگرد آجدار 28 ذوب آهن اصفهان (A3)</p>
-                                                    <p class="text-subtitle f13"> مشخصات محصول:</p>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >سایز:</p>
-                                                            <p class="fw-bold">28</p>
-                                                        </div>
-
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >وزن:</p>
-                                                            <p class="fw-bold">10</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >استاندارد:</p>
-                                                            <p class="fw-bold">A3</p>
-                                                        </div>
-
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >میزان:</p>
-                                                            <p class="fw-bold">100 کیلوگرم</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-between f13">
-                                                        <div class="d-flex align-items-center ">
-                                                            <p >مبلغ پیش فاکتور:</p>
-                                                            <p class="fw-bold">A3</p>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <button class="w-100 bg-dark text-white border-0 h-46 rounded10">ویرایش سفارش</button>
-                                                </div>
-                                                <div class="col-7 bg-gray p-4 rounded10">
+                                                
+                                                <div class="col-12 bg-gray p-4 rounded10">
                                                     <div class="d-flex align-items-center justify-content-between">
                                                         <p class="f20 m-0">افزودن به پیش فاکتور</p>
                                                         <i class="f12 icon-close"></i>
