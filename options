@@ -15,13 +15,13 @@ mfoolad_slider_btn1_text == BTN 1 Text Slider
 mfoolad_slider_btn2_text == BTN 2 Text Slider
 
 
-mfoolad_sabt_desc1 == title 1 sabt
-mfoolad_sabt_desc2 == title 2 sabt
-mfoolad_sabt_desc3 == title 3 sabt
-mfoolad_sabt_desc4 == title 4 sabt
+mfoolad_sabt_title1 == title 1 sabt
+mfoolad_sabt_title2 == title 2 sabt
+mfoolad_sabt_title3 == title 3 sabt
+mfoolad_sabt_title4 == title 4 sabt
 mfoolad_sabt_desc1 == Sabt Description 1
-mfoolad_sabt_desc1 == Sabt Description 2
-mfoolad_sabt_desc1 == Sabt Description 3
-mfoolad_sabt_desc1 == Sabt Description 4
+mfoolad_sabt_desc2 == Sabt Description 2
+mfoolad_sabt_desc3 == Sabt Description 3
+mfoolad_sabt_desc4 == Sabt Description 4
 mfoolad_whymihan_video == Why Mihan Video
 mfoolad_whymihan_conv == Video Convert
