@@ -2,6 +2,7 @@
 require_once("includes/settings.php");
 require_once("includes/seo.php");
 require_once("includes/checkout.php");
+require_once("includes/excel.php");
 add_action( 'after_setup_theme',function(){
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );

@@ -44,8 +44,12 @@ function final_checkout(){
         update_post_meta($pid,"name",$_POST['name']);
         update_post_meta($pid,"phone",$_POST['phone']);
         update_post_meta($pid,"rows",$rows);
-        echo json_encode(array("result"=>"1","url"=>$url_final));
+
         unset($_COOKIE['mfoolad_basket']);
+        setcookie('mfoolad_basket', null, -1,'/'); 
+
+        echo json_encode(array("result"=>"1","url"=>$url_final));
+        
     } else {
         echo json_encode(array("result"=>"-1"));
     }

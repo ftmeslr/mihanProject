@@ -27,7 +27,7 @@ get_header();
                             </thead>
                             <tbody>
 <?php
-$basket = json_decode(str_replace('\"','"',$_COOKIE['mfoolad_basket']),true);
+$basket = isset($_COOKIE['mfoolad_basket']) ? json_decode(str_replace('\"','"',$_COOKIE['mfoolad_basket']),true) : [];
 $i = 1;
 $price = 0;
 foreach($basket as $b){

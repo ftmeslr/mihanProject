@@ -46,10 +46,10 @@ foreach($terms as $t){
                                 </div>
                             </div>
                             <div class="d-flex align-items-center f12">
-                                <p class="mb-0 mx-1">خروجی اکسل</p>
+                                <p class="mb-0 mx-1"><a href="<?=get_bloginfo("url"); ?>?toexcel=<?=$current_cat->term_id; ?>" target="_blank">خروجی اکسل</a></p>
                                 <i class="icon-excel mx-1 f20"></i>
                                 <div class="small_line mx-1"></div>
-                                <p  class="mb-0 mx-1">چاپ</p>
+                                <p  class="mb-0 mx-1"><a href="<?=get_bloginfo("url"); ?>?print=<?=$current_cat->term_id; ?>" target="_blank">چاپ</a></p>
                                 <i class="icon-Printer f20 mx-1"></i>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ foreach($terms as $t){
                                     <td><p class="m-0 mt-2"><?=$product->get_attribute( 'pa_standard' ); ?></p></td>
                                     <td><p class="m-0 mt-2"><?=$product->get_price(); ?></p></td>
                                     <td><p class="m-0 mt-2"><?=get_the_modified_date("Y/m/d"); ?></p></td>
-                                    <td><button class="btn bg-green-light f13">افزودن به پیش فاکتور</button></td>
+                                    <td><button class="btn bg-green-light f13"><a href="<?php the_permalink(); ?>">افزودن به پیش فاکتور</a></button></td>
                                     <td class="pt-4"><a href="<?php the_permalink(); ?>"><i class="icon-chart f20"></i></a></td>
 <?php } ?>
                                 </tbody>
