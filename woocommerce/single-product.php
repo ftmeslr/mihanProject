@@ -251,63 +251,42 @@
                                     <div class="w-100 banner"></div>
                                     <div class="bg-white white-shadow p-4 rounded10">
                                     <div class="f13 l22">
-                                        <p class="fw-bold f16">خرید آنلاین میلگرد</p>
-                                        میلگرد میانه، یکی از محصولات بسیار پرکاربرد کارخانه فولاد آذربایجان شهر میانه است. این مجتمع، میلگردهای خود را با استاندارد A1، A2، A3 و A4 در سایزهای مختلف 8 تا 32 تولید و در بازار عرضه می کند. به دلیل اینکه میلگرد از محصولات فولادی بسیار بااهمیت در صنایع مختلف علی الخصوص ساختمان سازی است، اطلاع از قیمت روز میلگرد میانه به عنوان یکی از مقاطع فولادی مرغوب و باکیفیت بازار برای فعالین این حوزه اهمیت دارد.
-                                        
-                                        <p class="fw-bold f14 my-1">
-                                        قیمت میلگرد میانه امروز
-                                        </p>
-                                        قیمت میلگرد میانه، بر اساس پارامترهای مشخصی که در بازار آهن تعریف شده است، مشخص می شود. وزن و سایز هر میلگرد، اثر بسیار زیادی بر نرخ این محصول دارد، مثلا قیمت میلگرد میانه سایز 18 از سایز 14 این کارخانه بیشتر است. بیشتر پیمانکاران پروژه های عمرانی غرب و شمال غرب کشور از این محصولات بخاطر کیفیت بالایی که دارند استفاده می کنند و به همین دلیل برای برآورد بودجه نهایی خود، لازم دارند تا قیمت امروز میلگرد میانه را داشته باشند.
-                                        طبق نظر کارشناسان:
-                                     
-                                        <p class="fw-bold f14 my-1">
-                                            قیمت روز میلگرد میانه 
-                                        </p>
-                                                              بهای میلگرد میانه، به‌دلیل پرکاربرد بودن این محصول، به‌صورت روزانه بروزرسانی می شود. این محصول فولادی که در سایزهای متنوع 10 تا 32 و در استانداردهای مختلف A2، A3، A4 در کارخانه فولاد آذربایجان تولید می‌شود، کیفیت بسیار بالایی دارد و در بازار آهن بسیار پرفروش است؛ به همین علت اطلاع از قیمت روز میلگرد میانه برای خریداران و مصرف کنندگان این مقطع اهمیت بسیار بالایی دارد تا بتوانند برای بودجه نهایی پروژه های خود تصمیم گیری درستی داشته باشند.                        </div>
+                                        <?php the_content(); ?>
                                     </div>
-            
+<?php
+$qu = new WP_Query(array("post_type"=>"seofaq","meta_query"=>array(
+    array("key"=>"type","value"=>"faq_single"),
+)));
+if($qu->have_posts()){
+?>
                                     <div class="bg-white white-shadow mt-4 p-4 rounded10">
-            
-                                    <a class="rounded10 d-flex justify-content-between align-items-center w-100 d-block f13 text-black bg-gray p-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                      <span>برای محاسبه و تعیین قیمت میلگرد میانه، به چه فاکتورهایی توجه می‌شود؟</span> 
-                                      <i class="icon-chevron-down f9"></i>
-                                    </a>
-                                 
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body f12 border-0">
-                                            لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.                        
-                                        </div>
-                                    </div>
-            
-                                    <a class="rounded10 mt-2 d-flex justify-content-between align-items-center w-100 d-block f13 text-black bg-gray p-3" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                                        <span>برای محاسبه و تعیین قیمت میلگرد میانه، به چه فاکتورهایی توجه می‌شود؟</span> 
-                                        <i class="icon-chevron-down f9"></i>
-                                      </a>
-                                   
-                                      <div class="collapse" id="collapseExample2">
-                                          <div class="card card-body f12 border-0">
-                                              لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.                        
-                                          </div>
-                                      </div>
-            
-                                      <a class="rounded10 mt-2 d-flex justify-content-between align-items-center w-100 d-block f13 text-black bg-gray p-3" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
-                                        <span>برای محاسبه و تعیین قیمت میلگرد میانه، به چه فاکتورهایی توجه می‌شود؟</span> 
-                                        <i class="icon-chevron-down f9"></i>
-                                      </a>
-                                   
-                                      <div class="collapse" id="collapseExample3">
-                                          <div class="card card-body f12 border-0">
-                                              لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.                        
-                                          </div>
-                                      </div>
-            
-                                    </div>
+<?php
+
+while($qu->have_posts()){
+    $qu->the_post();
+    global $post;
+    $rows = get_post_meta($post->ID,"rows",true) ?: [];
+    foreach($rows as $r){
+        echo '<a class="rounded10 mt-2 d-flex justify-content-between align-items-center w-100 d-block f13 text-black bg-gray p-3" data-bs-toggle="collapse" href="#'.md5($r['title'].$r['text']).'" role="button" aria-expanded="false" aria-controls="'.md5($r['title'].$r['text']).'">
+                <span>'.$r['title'].'</span> 
+                <i class="icon-chevron-down f9"></i>
+            </a>
         
+            <div class="collapse" id="'.md5($r['title'].$r['text']).'">
+                <div class="card card-body f12 border-0">'.$r['text'].'</div>
+            </div>';
+    }
+}
+?>
+            
+                                    </div>
+<?php } ?>
                                 
                             </div>
                         </div>
             </div>
 
+        </div>
         </div>
 
 

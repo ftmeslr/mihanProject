@@ -27,7 +27,7 @@
                 <h2 class="f32 l54-26 text-black fw-bold text-center mt-lg-4">لیست قیمت محصولات</h2>
                 <span class="text-subtitle f14 l23-74 text-center d-inline-flex align-items-center w-auto m-auto">
                     <span class="icon-return ms-2"></span>
-                    آخرین بروزرسانی: <?php if(!empty($terms)){ ?><span class="me-1"><?=get_last_post_date($terms[1]->slug); ?> پیش</span> <?php } ?>
+                    آخرین بروزرسانی: <?php if(!empty($terms)){ ?><span class="me-1"><?=get_last_post_date($terms[array_key_first($terms)]->slug); ?> پیش</span> <?php } ?>
                 </span>
 
                 <div class="d-flex align-items-start">
