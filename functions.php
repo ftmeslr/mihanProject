@@ -97,4 +97,45 @@ add_action("init",function(){
     }
     //delete_transient( 'wc_attribute_taxonomies' );
 });
+//Comments
+function cn_comments($comment, $args, $depth) { 
+	$spoil = get_comment_meta($comment->comment_ID,"spoil",true);
+	$naghd = get_comment_meta($comment->comment_ID,"naghd",true);
+	$user_meta= get_userdata($comment->user_id);
+	$user_roles = $user_meta->roles;
+	$likes = get_comment_meta($comment->comment_ID,"likes",true);
+    $dislikes = get_comment_meta($comment->comment_ID,"dislikes",true);
+?>
+<?php if($depth > 1) { ?>
+<div class="reply"><span class="icon-reply"></span>
+<?php } ?>
+<div class="border comment<?=($naghd ? " naghd" : "");?> <?=($user_roles[0] == 'administrator' || $user_roles[0] == 'editor' || $user_roles[0] == 'Author' ? " admin" : "");?>" id="comment-<?=$comment->comment_ID;?>">
+	<div class="user flex">
+		<div class="profile">
+			<figure><?=get_avatar($comment->comment_author_email,50); ?></figure>
+				<div class="txt">
+					<div><span class="cmm"><?=($naghd ? "نقد" : "نظر");?></span> <span class="name"><?php comment_author(); ?></span></div>
+						<span class="time"><?php comment_time("j F Y"); ?></span>
+					</div>
+				</div>
+			<div class="star"> 
+			<span class="like cm_like" data-id="<?=$comment->comment_ID;?>"><?=( !empty($likes) ? $likes : "0");?> موافق</span>
+			<span class="unlike cm_unlike" data-id="<?=$comment->comment_ID;?>"><?=( !empty($dislikes)? $dislikes : "0");?> مخالف</span>
+			</div>
+		</div>
+		<div class="text<?=($spoil ? " spoil" : "");?>">
+			<?php comment_text(); ?>
+		</div>
+	<?php if($depth <= 2){ ?>
+	<a href="#replay" title="پاسخ" class="replay">پاسخ دادن</a>
+	<?php } ?>
+	<?php if($spoil) { ?>
+	<div class="warning"><span class="icon-warning"></span><span class="txt"> این نظر داستان فیلم را لو میدهد برای نمایش کلیک کنید</span></div>
+	<?php } ?>
+</div>
+<?php if($depth > 1) { ?>
+</div>
+<?php } ?>
+<?php
+}
 ?>

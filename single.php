@@ -174,14 +174,9 @@ foreach(get_the_tags() as $tag){
             </p>
           </div>
         </div>
+        <?php comments_template(); ?>
         <div class="px-195">
-          <textarea
-            name="comment"
-            id=""
-            cols="30"
-            rows="10"
-            class="rounded10 border bg-gray p-2 f13 w-100"
-          ></textarea>
+          <textarea name="comment" id="" cols="30" rows="10" class="rounded10 border bg-gray p-2 f13 w-100"></textarea>
           <div class="row mt-3">
             <div class="col-5">
               <input
