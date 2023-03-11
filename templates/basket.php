@@ -116,10 +116,30 @@ foreach($basket as $b){
 
                                                     <div class="d-flex justify-content-between align-items-center mt-3">
                                                         <p class="m-0 f12 text-subtitle">پس از ثبت پیش فاکتور، همکاران ما با شما تماس خواهند گرفت</p>
-                                                        <button class="bg-green-light border-0 text-white f13 px-2 h-46 rounded10">ثبت پیش فاکتور</button>
+                                                        <button id="final_save" class="bg-green-light border-0 text-white f13 px-2 h-46 rounded10">ثبت پیش فاکتور</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+<script>
+var $ = jQuery;
+$(function(){
+    $("#final_save").click(function(e){
+        e.preventDefault();
+        $.post('<?=admin_url( 'admin-ajax.php' ); ?>',{action:"final_checkout",name:$("#name").val(),phone:$("#tel").val(),desc:$("#description").val()},function(res){
+            res = JSON.parse(res);
+            if(res['result'] == "1"){
+                window.location.href = res['url'];
+            }
+            if(res['result'] == "-1"){
+                alert("سبد خرید شما خالی هست");
+            }
+            if(res['result'] == "0"){
+                alert("لطفا نام و شماره تماس خودرا وارد کنید");
+            }
+        })
+    })
+});
+</script>
 <?php get_footer(); ?>
