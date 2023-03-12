@@ -80,6 +80,15 @@ $(function () {
     },
   });
   // Index -> priceList swiperJs
+
+  //Like
+  $(document).on("click",".likeit",function(e){
+    e.preventDefault();
+    if($(this).data("pid")){
+      $.post(ajax_url,{action:"likeit",pid:$(this).data("pid")});
+      $(this).addClass("liked");
+    }
+  })
 });
 
 function readMore() {

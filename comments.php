@@ -13,15 +13,17 @@
 		}
 	}
 	$oddcomment = 'class="alt" ';
+	global $user_ID;
 ?>
 
 <?php if ('open' == $post->comment_status) : ?>
 <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
 <p>برای ارسال نظر باید وارد شوید<a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('logged in','kubrick'); ?></a></p>
 <?php else : ?>
-<form action="<?php echo home_url(); ?>/wp-comments-post.php" method="post" id="commentform" name="commform" onsubmit="return validateForm()">
 
 <div class="px-195">
+<form action="<?php echo home_url(); ?>/wp-comments-post.php" method="post" id="commentform" name="commform" onsubmit="return validateForm()">
+
 	<textarea id="comment" placeholder="Your Message" name="comment" class="rounded10 border bg-gray p-2 f13 w-100" required></textarea>
 	
 	<div class="row mt-3">
@@ -41,7 +43,7 @@
 			</button>
 		</div>
 	</div>
-</div>
+
 </form>
 
 
@@ -64,3 +66,4 @@ else :?>
 <?php endif; ?>
 
 <?php endif; ?>
+</div>

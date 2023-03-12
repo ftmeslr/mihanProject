@@ -33,10 +33,6 @@ add_filter('nav_menu_css_class', function($classes, $item, $args) {
     }
     return $classes;
 }, 1, 3);
-//Function to get like
-function get_likes(){
-    return "0";
-}
 //Get last Post updated date
 function get_last_post_date($cat){
     $query = new WP_Query(array("post_type"=>"product","showposts"=>"1","product_cat"=>$cat));
@@ -106,36 +102,46 @@ function cn_comments($comment, $args, $depth) {
 	$likes = get_comment_meta($comment->comment_ID,"likes",true);
     $dislikes = get_comment_meta($comment->comment_ID,"dislikes",true);
 ?>
-<?php if($depth > 1) { ?>
-<div class="reply"><span class="icon-reply"></span>
-<?php } ?>
-<div class="border comment<?=($naghd ? " naghd" : "");?> <?=($user_roles[0] == 'administrator' || $user_roles[0] == 'editor' || $user_roles[0] == 'Author' ? " admin" : "");?>" id="comment-<?=$comment->comment_ID;?>">
-	<div class="user flex">
-		<div class="profile">
-			<figure><?=get_avatar($comment->comment_author_email,50); ?></figure>
-				<div class="txt">
-					<div><span class="cmm"><?=($naghd ? "نقد" : "نظر");?></span> <span class="name"><?php comment_author(); ?></span></div>
-						<span class="time"><?php comment_time("j F Y"); ?></span>
-					</div>
-				</div>
-			<div class="star"> 
-			<span class="like cm_like" data-id="<?=$comment->comment_ID;?>"><?=( !empty($likes) ? $likes : "0");?> موافق</span>
-			<span class="unlike cm_unlike" data-id="<?=$comment->comment_ID;?>"><?=( !empty($dislikes)? $dislikes : "0");?> مخالف</span>
-			</div>
-		</div>
-		<div class="text<?=($spoil ? " spoil" : "");?>">
-			<?php comment_text(); ?>
-		</div>
-	<?php if($depth <= 2){ ?>
-	<a href="#replay" title="پاسخ" class="replay">پاسخ دادن</a>
-	<?php } ?>
-	<?php if($spoil) { ?>
-	<div class="warning"><span class="icon-warning"></span><span class="txt"> این نظر داستان فیلم را لو میدهد برای نمایش کلیک کنید</span></div>
-	<?php } ?>
+<div class="<?=($depth > 1 ? 'bg-white white-shadow rounded10 p-3 mt-3 f14 border border-danger border-right pe-5' : "bg-white white-shadow rounded10 p-3 mt-3 f14"); ?>">
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-6 d-flex">
+                <?=get_avatar($comment->comment_author_email,47); ?>
+                <div class="d-flex flex-column w-100 mx-2">
+                    <p class="f14 fw-bold my-1"><?php comment_author(); ?></p>
+                    <p class="text-subtitle f12"><?php comment_time("j F Y"); ?></p>
+                </div>
+            </div>
+            <div class="d-flex col-6 justify-content-end align-items-center">
+                <!--<p class="m-0">2</p>
+                <i class="icon-heart me-2"></i>-->
+                <p class="m-0 me-3 cursor-pointer" data-id="<?=$comment->comment_ID;?>">پاسخ</p>
+                <i class="icon-heart me-2"></i>
+            </div>
+        </div>
+        <p class="mt-4 f14 text-subtitle">
+            <?php comment_text(); ?>
+        </p>
+    </div>
 </div>
-<?php if($depth > 1) { ?>
-</div>
-<?php } ?>
+
 <?php
 }
+// Like
+function get_likes(){
+    global $post;
+    return get_post_meta($post->ID,"likes",true) ?: "0";
+}
+function likeit_ajax(){
+    if(!isset($_POST['pid'])){ die(); }
+    $pid = $_POST['pid'];
+    $likes = get_post_meta($post->ID,"likes",true) ?: 0;
+    if(!isset($_COOKIE['liked_'.$pid])){
+        update_post_meta($pid,"likes",$likes+1);
+        setcookie('liked_'.$pid,"1",strtotime( '+30 days' ),"/");
+    }
+    die();
+}
+add_action("wp_ajax_likeit","likeit_ajax");
+add_action("wp_ajax_nopriv_likeit","likeit_ajax");
 ?>

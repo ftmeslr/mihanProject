@@ -52,33 +52,21 @@ the_post();
         <div class="row mt-230 px-195">
           <div class="col-3">
             <div class="sticky-top">
+
               <div class="bg-white white-shadow px-3 py-1 f13 rounded10">
                 <p class="text-red my-3 cursor-pointer">فولاد سردکار چیست؟</p>
-                <p class="text-subtitle my-3 cursor-pointer">
-                  مزایای فولاد سردکار
-                </p>
+                <p class="text-subtitle my-3 cursor-pointer">مزایای فولاد سردکار</p>
               </div>
+
               <div class="bg-white white-shadow px-3 py-1 f13 rounded10 mt-3">
-                <p
-                  class="text-subtitle my-3 d-flex align-items-center cursor-pointer"
-                >
+                <p class="text-subtitle my-3 d-flex align-items-center cursor-pointer likeit" data-pid="<?=$post->ID;?>">
                   <i class="icon-heart f16 ms-1"></i>
                   <span> مطلب مفیدی بود</span>
                 </p>
-                <p
-                  class="text-subtitle my-3 d-flex align-items-center cursor-pointer"
-                  onclick="window.print()"
-                >
+                <p class="text-subtitle my-3 d-flex align-items-center cursor-pointer" onclick="window.print()">
                   <i class="icon-basket f16 ms-1"></i> <span> چاپ مطلب</span>
                 </p>
-                <p
-                  class="text-subtitle my-3 d-flex align-items-center cursor-pointer"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  class="btn bg-green-light f13"
-                  data-toggle="modal"
-                  data-target="#exampleModal"
-                >
+                <p class="text-subtitle my-3 d-flex align-items-center cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bg-green-light f13" data-toggle="modal" data-target="#exampleModal">
                   <i class="icon-search f16 ms-1"></i>
                   <span>اشتراک گذاری مطلب</span>
                 </p>
@@ -86,64 +74,35 @@ the_post();
             </div>
           </div>
           <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div
-              class="modal-dialog bg-white white-shadow rounded10"
-              style="width: 400px"
-            >
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog bg-white white-shadow rounded10" style="width: 400px">
               <div class="modal-content col-12 rounded10 p-3">
-                <div
-                  class="d-flex w-100 justify-content-between align-items-center mb-4"
-                >
+                <div class="d-flex w-100 justify-content-between align-items-center mb-4">
                   <p class="my-0">اشتراک گذاری</p>
                   <i class="icon-close f12"></i>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <div
-                    class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10"
-                  >
+                  <div class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10">
                     <i class="icon-telegram f28"></i>
                   </div>
-                  <div
-                    class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10"
-                  >
+                  <div class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10">
                     <i class="icon-telegram f28"></i>
                   </div>
-                  <div
-                    class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10"
-                  >
+                  <div class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10">
                     <i class="icon-telegram f28"></i>
                   </div>
-                  <div
-                    class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10"
-                  >
+                  <div class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10">
                     <i class="icon-telegram f28"></i>
                   </div>
-                  <div
-                    class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10"
-                  >
+                  <div class="d-flex align-items-center justify-content-center bg-dark-blue p-3 rounded10">
                     <i class="icon-telegram f28"></i>
                   </div>
                 </div>
 
                 <p class="f13 text-subtitle mt-5">آدرس کوتاه مطلب</p>
                 <div class="position-relative">
-                  <input
-                    class="bg-gray rounded10 border-0 h-50 w-100 text-left"
-                    type="text"
-                    id="myInput"
-                    style="padding-right: 70px"
-                  />
-                  <button
-                    class="btn bg-green-light f13 position-absolute btn-abs mt-2"
-                    onclick="copyText()"
-                  >
+                  <input class="bg-gray rounded10 border-0 h-50 w-100 text-left" type="text" id="myInput" style="padding-right: 70px" value="<?php bloginfo("url"); ?>?p=<?=$post->ID; ?>"/>
+                  <button class="btn bg-green-light f13 position-absolute btn-abs mt-2" onclick="copyText()" >
                     کپی
                   </button>
                 </div>
@@ -175,94 +134,7 @@ foreach(get_the_tags() as $tag){
           </div>
         </div>
         <?php comments_template(); ?>
-        <div class="px-195">
-          <textarea name="comment" id="" cols="30" rows="10" class="rounded10 border bg-gray p-2 f13 w-100"></textarea>
-          <div class="row mt-3">
-            <div class="col-5">
-              <input
-                type="text"
-                name="name"
-                class="rounded10 border bg-gray h-46 w-100 px-2 f13"
-                placeholder="نام شما"
-              />
-            </div>
-            <div class="col-5">
-              <input
-                type="text"
-                name="family"
-                class="col-5 rounded10 border bg-gray h-46 w-100 px-2 f13"
-                placeholder="نام شما"
-              />
-            </div>
-            <div class="col-2">
-              <button
-                class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 w-100"
-              >
-                ارسال نظر
-              </button>
-            </div>
-          </div>
-          <div
-            class="bg-white white-shadow rounded10 p-3 mt-3 f14 cursor-pointer"
-          >
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-6 d-flex">
-                <img
-                  style="width: 47px; height: 47px"
-                  src="./images/global/avatar.png"
-                  alt=""
-                />
-                <div class="d-flex flex-column w-100 mx-2">
-                  <p class="f14 fw-bold my-1">حمید راد</p>
-                  <p class="text-subtitle f12">1 اسفند 1401</p>
-                </div>
-              </div>
-              <div class="d-flex col-6 justify-content-end align-items-center">
-                <p class="m-0">2</p>
-                <i class="icon-heart me-2"></i>
-                <p class="m-0 me-3">پاسخ</p>
-                <i class="icon-heart me-2"></i>
-              </div>
-            </div>
-            <p class="mt-4 f14 text-subtitle">
-              لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و
-              بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
-            </p>
-          </div>
-          <div class="pe-5 cursor-pointer">
-            <div
-              class="bg-white white-shadow rounded10 p-3 mt-3 f14 border border-danger border-right"
-            >
-              <div
-                class="row d-flex justify-content-between align-items-center"
-              >
-                <div class="col-6 d-flex">
-                  <img
-                    style="width: 47px; height: 47px"
-                    src="./images/global/avatar.png"
-                    alt=""
-                  />
-                  <div class="d-flex flex-column w-100 mx-2">
-                    <p class="f14 fw-bold my-1">حمید راد</p>
-                    <p class="text-subtitle f12">1 اسفند 1401</p>
-                  </div>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-end align-items-center"
-                >
-                  <p class="m-0">2</p>
-                  <i class="icon-heart me-2"></i>
-                  <p class="m-0 me-3">پاسخ</p>
-                  <i class="icon-heart me-2"></i>
-                </div>
-              </div>
-              <p class="mt-4 f14 text-subtitle">
-                لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی
-                و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
-              </p>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
     <!-- blog -->

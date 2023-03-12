@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php bloginfo("template_directory"); ?>/assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php bloginfo("template_directory"); ?>/style.css" />
     <?php wp_head(); ?>
+    <script> var ajax_url = '<?=admin_url('admin-ajax.php'); ?>'; </script>
 </head>
 
 <body dir="rtl" class="bg-main">
