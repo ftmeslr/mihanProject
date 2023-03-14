@@ -115,7 +115,7 @@ function cn_comments($comment, $args, $depth) {
             <div class="d-flex col-6 justify-content-end align-items-center">
                 <!--<p class="m-0">2</p>
                 <i class="icon-heart me-2"></i>-->
-                <p class="m-0 me-3 cursor-pointer" data-id="<?=$comment->comment_ID;?>">پاسخ</p>
+                <p class="m-0 me-3 cursor-pointer replaycm" data-id="<?=$comment->comment_ID;?>">پاسخ</p>
                 <i class="icon-heart me-2"></i>
             </div>
         </div>

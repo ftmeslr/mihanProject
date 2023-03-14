@@ -48,6 +48,7 @@
 
 
 <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
 <?php do_action('comment_form', $post->ID); ?>
 
 <?php endif; ?>
@@ -67,3 +68,21 @@ else :?>
 
 <?php endif; ?>
 </div>
+<script>
+var $ = jQuery;
+$(function(){
+	$(".replaycm").click(function(){
+		if($(this).data("id")){
+			$("#comment_parent").val($(this).data("id"));
+			$(".commentTitle").addClass("cursor-pointer").text(`شما درحال پاسخ به نظر ${$(this).parent().parent().find("p.f14").text()} هستید ، برای لغو کلیک کنید`)
+			$([document.documentElement, document.body]).animate({
+				scrollTop: $(".commentTitle").offset().top-100
+			}, 100);
+		}
+	});
+	$(".commentTitle").click(function(){
+		$("#comment_parent").val(0);
+		$(this).text("نظر خودرا در مورد این مطلب بنویسید").removeClass("cursor-pointer");
+	});
+});
+</script>

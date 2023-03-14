@@ -127,7 +127,7 @@ foreach(get_the_tags() as $tag){
             <p class="f17 my-0">
               <span class="text-red mx-2"><?php comments_number("0","1","%"); ?></span>نظر ارسال شده است
             </p>
-            <p class="text-subtitle mx-2 f14">
+            <p class="text-subtitle mx-2 f14 commentTitle">
               نظر خود را در مورد مطلب <?php the_title(); ?> 
               بنویسید
             </p>

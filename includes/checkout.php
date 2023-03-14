@@ -38,11 +38,13 @@ function final_checkout(){
             'post_title'    => "سفارشات ".$_POST['name'],
             'post_content'  => $_POST['desc'],
             'post_author'   => 1,
+            'post_status'   => "publish",
             'post_type' => "mfoolad_orders"
         );
         $pid = wp_insert_post( $my_post );
         update_post_meta($pid,"name",$_POST['name']);
         update_post_meta($pid,"phone",$_POST['phone']);
+        update_post_meta($pid,"stats","0");
         update_post_meta($pid,"rows",$rows);
 
         unset($_COOKIE['mfoolad_basket']);
@@ -61,6 +63,7 @@ add_action("add_meta_boxes",function(){
 });
 function orderbox_callback(){
     global $post;
+    $stats = get_post_meta($post->ID,"stats",true);
 ?>
 <style>
 .mfoolad * {
@@ -70,7 +73,7 @@ function orderbox_callback(){
     display:inline-block;
     width:25%;
 }
-.mfoolad input {
+.mfoolad input , .mfoolad select {
     width:74%;
     margin-top:5px;
 }
@@ -91,6 +94,14 @@ function orderbox_callback(){
     <input type="text" value="<?=get_post_meta($post->ID,"name",true); ?>">
     <label>شماره تماس</label>
     <input type="text" value="<?=get_post_meta($post->ID,"phone",true); ?>">
+    <label>وضهیت سفارش</label>
+    <select name="stats">
+        <option value="0"<?=(!$stats ? " selected" : "");?>>درحال انتظار</option>
+        <option value="1"<?=($stats == "1" ? " selected" : "");?>>در انتظار پرداخت</option>
+        <option value="2"<?=($stats == "2" ? " selected" : "");?>>تایید شده</option>
+        <option value="3"<?=($stats == "3" ? " selected" : "");?>>ارسال شده</option>
+        <option value="4"<?=($stats == "4" ? " selected" : "");?>>تحویل داده شده</option>
+    </select>
 </div>
 <?php
 }
@@ -118,4 +129,72 @@ echo '</div>';
     }
     echo '</div>';
 }
+add_action("save_post",function(){
+    global $post;
+    if(get_post_type($post) != "mfoolad_orders"){ return false; }
+    update_post_meta($post->ID,"stats",$_POST['stats']);
+});
+add_filter( 'manage_edit-mfoolad_orders_columns',function($columns) {
+    unset($columns['cb']); 
+    unset($columns['author']);
+    unset($columns['date']);
+
+    $columns['stats'] = "وضعیت سفارش";
+    $columns['date'] = "تاریخ";
+    return $columns;
+});
+add_action( 'manage_mfoolad_orders_posts_custom_column' ,function( $column, $post_id ) {
+    if($column == "stats"){
+        $stats = get_post_meta($post_id,'stats',true);
+        $txt = "درحال انتظار";
+        if($stats == "1"){ $txt = "در انتظار پرداخت"; } 
+        if($stats == "2"){ $txt = "تایید شده"; } 
+        if($stats == "3"){ $txt = "ارسال شده"; }
+        if($stats == "4"){ $txt = "تحویل داده شده"; }
+        echo $txt;
+    }
+}, 10, 2 );
+add_filter( 'manage_edit-mfoolad_orders_sortable_columns',function( $columns ) {        
+    $columns['stats'] = 'stats';
+    return $columns;
+});
+add_action("pre_get_posts",function($query){
+    if( ! is_admin() ){ return false; }
+    global $pagenow;
+    $orderby = $query->get( 'orderby');
+        
+    if($orderby == "stats" ) {
+        $query->set('meta_key','stats');
+        $query->set('orderby','meta_value_num');
+    }
+    if ( 'edit.php' === $pagenow ) {
+		if ( isset( $_GET['set_stats'] ) && $_GET['set_stats'] != "-1" ) {
+			$meta_query = array(
+				array(
+					'key' => 'stats',
+					'value' => $_GET['set_stats'],
+					'compare' => '='
+				)
+			);
+			$query->set( 'meta_query', $meta_query );
+		}
+	}
+});
+add_action( 'manage_posts_extra_tablenav',function() {
+    $screen = get_current_screen();
+    if($screen->id != 'edit-mfoolad_orders'){ return false; }
+	?>
+	<form method="GET">
+        <select name="set_stats">
+            <option value="-1"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "-1" ? " selected" : ""); ?>>همه</option>
+            <option value="0"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "0" ? " selected" : ""); ?>>درحال انتظار</option>
+            <option value="1"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "1" ? " selected" : ""); ?>>در انتظار پرداخت</option>
+            <option value="2"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "2" ? " selected" : ""); ?>>تایید شده</option>
+            <option value="3"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "3" ? " selected" : ""); ?>>ارسال شده</option>
+            <option value="4"<?=(isset($_GET['set_stats']) && $_GET['set_stats'] == "4" ? " selected" : ""); ?>>تحویل داده شده</option>
+        </select>	
+        <input type="submit" class="button action" value="صافی">
+    </form>
+	<?php
+})
 ?>

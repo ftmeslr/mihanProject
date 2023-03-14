@@ -79,7 +79,7 @@ foreach($terms as $t){
                               </table>
 
                         </div>
-
+<div class="pagination"><?php if(function_exists("wp_pagenavi")){ wp_pagenavi(); } ?></div>
                         <div class="d-flex ">
                             <div class="col d-flex flex-column align-items-center justify-content-center bg-white white-shadow py-4 rounded-right">
                                 <div class="bg-red rounded-circle p-2 d-flex justify-content-center align-items-center" style="width:40px; height:40px;" >
