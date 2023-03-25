@@ -592,9 +592,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                                 <div class="border p-2 rounded10">
                                                     <p class="f12 text-subtitle l20-35 m-0">معمولاً سختی حاکی از مقاومت در برابر تغییر شکل بوده و این خاصیت در فلزات معیاری از مقاومت آنها در برابر تغییر شکل پلاستیک یا مومسان است .</p>
                                                 </div>
-                                                <div class="dropdown w-100 mt-2" id="mySelect" onChange="getOption()">
-                                                    <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">
-                                                        
+                                                <div class="dropdown w-100 mt-2" id="mySelect" onChange="updateSelectOneValues()">
+                                                    <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">      
                                                         <select id="select1" id="ddlViewBy" name="one" class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2">
                                                           <option>HB</option>
                                                           <option value="76.0">76.0</option>
@@ -605,7 +604,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                                           <option value="102" >102</option>
                                                           <option value="107">107</option>
                                                           <option value="114">114</option>
-                                                          <option value="76.0">76.0</option>
                                                           <option value="121" >121</option>
                                                           <option value="127">127</option>
                                                           <option value="135">135</option>
@@ -619,7 +617,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                                           <option value="200">200</option>
                                                           <option value="209">209</option>
                                                           <option value="219" >219</option>
-                                                          <option value="228">228</option>
+                                                          <option value="230">228</option>
                                                           <option value="238">238</option>
                                                           <option value="247" >247</option>
                                                           <option value="257">257</option>
@@ -632,20 +630,137 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                                                           <option value="334" >334</option>
                                                           <option value="346">346</option>
                                                           <option value="358">358</option>
+                                                          <option value="371">371</option>
+                                                          <option value="384" >384</option>
+                                                          <option value="398">398</option>
+                                                          <option value="411">411</option>
+                                                          <option value="426">426</option>
+                                                          <option value="441" >441</option>
+                                                          <option value="451">451</option>
+                                                          <option value="472">472</option>
+                                                          <option value="488">488</option>
+                                                          <option value="505">505</option>
+                                                          <option value="523" >523</option>
+                                                          <option value="542">542</option>
+                                                          <option value="561">561</option>
+                                                          <option value="580">580</option>
+                                                          <option value="600" >600</option>
+                                                          <option value="622">622</option>
                                                         </select>
                                                     </div> 
                                                   </div> 
-                                                  <div class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2 mt-2  d-flex align-items-center px-3">
-                                                    <p class="m-0" id="test1"></p>
+                                                    <div class="dropdown w-100 mt-2" id="mySelect" onChange="updateSelectTwoValues()">
+                                                        <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">   
+                                                    <select id="select2"name="two" class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2">
+                                                        <option>HV</option>
+                                                        <option value="80">80</option>
+                                                        <option value="85" >85</option>
+                                                        <option value="90" >90</option>
+                                                        <option value="95">95</option>
+                                                        <option value="101">101</option>
+                                                        <option value="107">107</option>
+                                                        <option value="113" >113</option>
+                                                        <option value="120">120</optionz>
+                                                        <option value="127">127</option>
+                                                        <option value="134">134</option>
+                                                        <option value="142">142</option>
+                                                        <option value="150" >150</option>
+                                                        <option value="158">158</option>
+                                                        <option value="166">166</option>
+                                                        <option value="175">175</option>
+                                                        <option value="183" >183</option>
+                                                        <option value="192">192</option>
+                                                        <option value="201">201</option>
+                                                        <option value="211">211</option>
+                                                        <option value="220" >220</option>
+                                                        <option value="230">230</option>
+                                                        <option value="240">240</option>
+                                                        <option value="250" >250</option>
+                                                        <option value="260">260</option>
+                                                        <option value="271">271</option>
+                                                        <option value="282" >282</option>
+                                                        <option value="293">293</option>
+                                                        <option value="304">304</option>
+                                                        <option value="315">315</option>
+                                                        <option value="327" >327</option>
+                                                        <option value="339">339</option>
+                                                        <option value="352">352</option>
+                                                         <option value="364">364</option>
+                                                        <option value="377">377</option>
+                                                        <option value="391" >391</option>
+                                                        <option value="404">404</option>
+                                                        <option value="419">419</option>
+                                                        <option value="433" >433</option>
+                                                        <option value="448">448</option>
+                                                        <option value="464">464</option>
+                                                        <option value="480">480</option>
+                                                        <option value="497" >497</option>
+                                                        <option value="514">514</option>
+                                                        <option value="532">532</option>
+                                                        <option value="550">550</option>
+                                                        <option value="570">570</option>
+                                                        <option value="590">590</option>
+                                                        <option value="610" >610</option>
+                                                        <option value="632">632</option>
+                                                        <option value="655">655</option>
+                                                     
+                                                      </select>
                                                   </div>
-                                                 <div class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2 mt-2 d-flex align-items-center px-3">
-                                                    <p class="m-0" id="test2"></p>
+                                                </div>
+                                                
+                                                <div class="dropdown w-100 mt-2" id="mySelect" onChange="updateSelectThreeValues()">
+                                                    <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">                                                       <select id="select3" name="three" class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2">
+                                                        <option>HRC</option>
+                                                        <option value="0.4">0.4</option>
+                                                        <option value="2.5" >2.5</option>
+                                                        <option value="4.6">4.6</option>
+                                                        <option value="6.7">6.7</option>
+                                                        <option value="8.7">8.7</option>
+                                                        <option value="10.7" >10.7</option>
+                                                        <option value="12.6">12.6</optionz>
+                                                        <option value="14.5">14.5</option>
+                                                        <option value="16.4">16.4</option>
+                                                        <option value="18.2" >18.2</option>
+                                                        <option value="20.3">20.3</optionz>
+                                                        <option value="22.2">22.2</option>
+                                                        <option value="23.9">23.9</option>
+                                                        <option value="25.6" >25.6</option>
+                                                        <option value="27.1">27.1</option>
+                                                        <option value="28.7" >2.5</option>
+                                                        <option value="30.1">30.1</option>
+                                                        <option value="33.0">33.0</option>
+                                                        <option value="34.5">34.5</option>
+                                                        <option value="35.9" >35.9</option>
+                                                        <option value="37.3">37.3</optionz>
+                                                        <option value="38.6">38.6</option>
+                                                        <option value="40.0">40.0</option>
+                                                        <option value="41.3" >41.3</option>
+                                                        <option value="42.6">42.6</optionz>
+                                                        <option value="43.9">43.9</option>
+                                                        <option value="45.1">45.1</option>
+                                                        <option value="46.4" >46.4</option>
+                                                        <option value="47.6">47.6</option>
+                                                        <option value="48.9">48.9</option>
+                                                        <option value="50.0">50.0</option>
+                                                        <option value="51.2" >51.2</option>
+                                                        <option value="42.4">42.4</optionz>
+                                                        <option value="53.5">53.5</option>
+                                                        <option value="54.7">54.7</option>
+                                                        <option value="55.8" >55.8</option>
+                                                        <option value="56.9">56.9</optionz>
+                                                        <option value="58.0">58.0</option>
+                                                        
+                                                       
+                                                      </select>
+
+                                                    </select>
                                                   </div>
                     
                                                   <p class="text-red text-right f12 w-100 m-2 pe-4" id="Traslate"></p>
                                                   <button class="rounded10 bg-green-light f13 text-white px-4 h-46 border-0 mt-2">
                                                     محاسبه
                                                   </button>
+                                            </div>
                                             </div>
                                         
                                         </div>

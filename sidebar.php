@@ -117,7 +117,7 @@ foreach($sellers as $s){
                                         <div class="border p-2 rounded10">
                                             <p class="f12 text-subtitle l20-35 m-0">معمولاً سختی حاکی از مقاومت در برابر تغییر شکل بوده و این خاصیت در فلزات معیاری از مقاومت آنها در برابر تغییر شکل پلاستیک یا مومسان است .</p>
                                         </div>
-                                        <div class="dropdown w-100 mt-2" id="mySelect" onChange="getOption()">
+                                        <div class="dropdown w-100 mt-2" id="mySelect" onChange="updateSelectValues()">
                                             <div class="dropdown w-100 mt-2 bg-gray border-1 rounded10 px-2">
                                                 
                                                 <select id="select1" id="ddlViewBy" name="one" class="dropdown-select w-100 h-46 px-2 bg-gray border-0 rounded10 f13 px-2">
